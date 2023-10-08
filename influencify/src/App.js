@@ -5,6 +5,7 @@ import Signup from "./Signup";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './Login'
 import Home from './Home'
+import Usersettings from './User'
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route path="/home"  element={<Home />}> 
         
+        </Route>
+        <Route path="/user" element={<Usersettings />}>
+
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Usersettings from "./User";
+import {useNavigate, Link} from 'react-router-dom';
+function Home() {
+  return (
+    <div>
+      <h2>Home</h2>
+      {/* <Link to="./user">Usersettings</Link> */}
 
-function Home()
-{
-    return(
-        <h2>Home</h2>
-    )
+    </div>
+  );
 }
 export default Home;
