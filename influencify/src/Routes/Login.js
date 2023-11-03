@@ -1,10 +1,11 @@
 import { Auth } from "../Auth";
+import '../tailwind.css'
+import HeaderTrainer from "../components/Header-Trainer";
 
 function Login(){
     return(
-        <div>
+        <div className="bg-purple">
             <Auth />
-            
         </div>
     );
 }
