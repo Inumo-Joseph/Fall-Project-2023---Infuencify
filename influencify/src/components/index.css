@@ -1,0 +1,44 @@
+.PageLayout
+{
+   margin-top: 80px;
+   padding-bottom: 50px;
+   padding-left: 50px;
+   box-sizing: border-box;
+   border-color: black;
+   border: solid;
+   background-color: rgb(138, 151, 209);
+
+}
+
+.Button{
+background-color: rgb(165, 93, 159);
+   
+        
+}
+
+.Box
+{
+    margin-top: 100px;
+    padding-top: 20px;
+    height: 200px
+}
+
+.Newsline
+{
+
+    background-color: gray;
+    min-height: 200px;
+    width: 1500px;
+    color: aqua;
+}
+
+.Heading1
+{
+    font-size: 30px;
+}
+
+.Heading2
+{
+    font-size: 20px;
+}
+
