@@ -1,4 +1,3 @@
-
 import "./App.css";
 import React from 'react'
 import {useState, useEffect} from 'react'
@@ -8,40 +7,30 @@ import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
 import Login from './Login'
 import Home from './Home'
 import UserSettings from './User'
-import Main from './components/Main';
-import './index.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import React, { useEffect, useState } from 'react';
-import {
-	BrowserRouter as Router,
-	Route,
-	Routes,
-	Navigate,
-} from 'react-router-dom';
-import { auth } from './Config/firebase-config';
-import Login from './Routes/Login';
 
-
-
-
-function App() {
-  // MAIN IDEA of changing background color across all pages simultaneously based on color chosen at the user page: 
+function AltApp()
+{
+// MAIN IDEA of changing background color across all pages simultaneously based on color chosen at the user page: 
   // User page makes a call to the 'changeBackgroundColor' through the function 'changeColor', which is the same function as 'changeBackgroundColor'.
   // There is also a variable, 'newColor', which stores the color of the background that gets passed back with the call. Then the function,
   // 'changeBackgroundColor' runs and is supposed to set the 'backgroundColor' variable to the color stored in 'newColor'. Now in the home page,
   //  the background color of the page is set to 'backgroundColor'. This is my thought process of how to change the background color of pages
   // based on the color chosen at the user page. More details follow with the below comments.
 
-
+  let pageBackgroundColor;
   //below code creates a state called backgroundColor. This variable would be responsible for storing the color of the background.
   const [backgroundColor, setBackgroundColor]=useState("white");
+  // const [otherPageBackground, setOtherPageBackground]=useState("")
   //changeBackgroundColor takes in 'newColor' as parameter which is the color of the background.
   const changeBackgroundColor=(newColor)=>{
     console.log("changing background color to: ", newColor);
    
     //setBackgroundColor is used to change the 'backgroundColor' to store the new color--> 'newColor'
     setBackgroundColor(newColor);
+    pageBackgroundColor=newColor;
+    console.log("The value of pageBackgroundColor is: "+ pageBackgroundColor);
     console.log("newColor color is: ", newColor);
+    console.log("The value of backgroundColor is:" + backgroundColor);
   };
  
   return (
@@ -62,7 +51,8 @@ function App() {
 
         </Route>
         {/* for the home page, we set the backgroundColor of the page to whatever color is stored in 'backgroundColor' */}
-        <Route path="/home"  element={<Home colorofBack={backgroundColor}/>}> 
+
+        <Route path="/home"  element={<Home backgroundColor={backgroundColor}/>}> 
         
         </Route>
         {/* Since the user page is going to be responsible for all settings, including changing the background color of the pages, we use a different format
@@ -74,4 +64,4 @@ function App() {
   );
 }
 
-export default App;
+export default AltApp;
