@@ -1,5 +1,4 @@
-import { Auth } from "./Routes/Auth";
-import "./Login.css"
+import { Auth } from "../Auth";
 
 function Login(){
     return(
