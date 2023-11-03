@@ -1,9 +1,47 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
+import axios from 'axios'
 
 //Taking changeColor as a parameter here. 'changeColor' is coming from the app.js file. Remember that 'changeColor' is a function that is equivalent to 'changeBackgroundColor' function.
 function UserSettings({changeColor, backgroundColor})
 {
+    //API:
+    // const [Streams, setStreams]=useState([]);
+    // const [loading, setLoading]=useState(true);
+    // const clientId='uvoeqxy1lyclvoqqdvyfji8qc9xtxz';
+    // const clientSecret='sx759owhratib6n8y0pprzydwv4e42';
+    // const oauthTokenUrl='https://id.twitch.tv/oauth2/token?client_id=uvoeqxy1lyclvoqqdvyfji8qc9xtxz&client_secret=sx759owhratib6n8y0pprzydwv4e42&grant_type=client_credentials';
+    // const apiEndpoint='';
+    // useEffect(() => {
+    //     // Request an OAuth token
+    //     axios.post(oauthTokenUrl)
+    //       .then((response) => {
+    //         const token = response.data.access_token;
+            
+    //         // Make a request to the Twitch API with the token
+    //         axios.get(apiEndpoint, {
+    //           headers: {
+    //             'Client-ID': clientId,
+    //             'Authorization': `Bearer ${token}`,
+    //           },
+    //         })
+    //         .then((response) => {
+    //           setStreams(response.data.data);
+    //           setLoading(false);
+    //         })
+    //         .catch((error) => {
+    //           console.error('Error fetching Twitch data:', error);
+    //           setLoading(false);
+    //         });
+    //       })
+    //       .catch((error) => {
+    //         console.error('Error getting OAuth token:', error);
+    //         setLoading(false);
+    //       });
+    //   }, []);
+    
+      
+    
 
     
     // const [color, setColor]=useState("white");
