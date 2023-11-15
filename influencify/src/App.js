@@ -4,22 +4,15 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import Signup from "./Signup";
-import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Switch, Navigate} from "react-router-dom";
 import Login from './Login'
 import Home from './Home'
 import UserSettings from './User'
 import Main from './components/Main';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import React, { useEffect, useState } from 'react';
-import {
-	BrowserRouter as Router,
-	Route,
-	Routes,
-	Navigate,
-} from 'react-router-dom';
+
 import { auth } from './Config/firebase-config';
-import Login from './Routes/Login';
 
 
 
