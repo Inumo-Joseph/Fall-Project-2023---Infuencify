@@ -3,11 +3,11 @@ import "./App.css";
 import React from 'react'
 import {useState, useEffect} from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
-import Signup from "./Signup";
+//import Signup from "./Signup";
 import { BrowserRouter, Routes, Route, Switch, Navigate} from "react-router-dom";
-import Login from './Login'
-import Home from './Home'
-import UserSettings from './User'
+import Login from './Routes/Login'
+import Home from './Routes/Home'
+import UserSettings from './components/User'
 import Main from './components/Main';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -38,6 +38,8 @@ function App() {
   };
  
   return (
+
+ 
     <BrowserRouter>
       <Routes>
         {/* path basically makes it so that when you do the url and at end
@@ -45,12 +47,11 @@ function App() {
         //denoted by the Signup file. From now on, when you do '/register' 
         relating to axios or useNavigate, it will refer to the Signup page */}
         
-        <Route path="/register" element={<Signup />}>
+        {/*<Route path="/register" element={<Signup />}>
 
-        </Route>
-        
-
-
+         </Route>
+      */}
+  
         <Route path="/login" element={<Login />}>
 
         </Route>
@@ -64,6 +65,8 @@ function App() {
         <Route path="/user" element={<UserSettings backgroundColor={backgroundColor} changeColor={changeBackgroundColor}/>}> </Route>
       </Routes>
     </BrowserRouter>
+
+
   );
 }
 
