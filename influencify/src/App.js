@@ -1,13 +1,6 @@
 
 import "./App.css";
-import React from 'react'
-import {useState, useEffect} from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
-import Signup from "./Signup";
-import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
-import Login from './Login'
-import Home from './Home'
-import UserSettings from './User'
 import Main from './components/Main';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -20,7 +13,8 @@ import {
 } from 'react-router-dom';
 import { auth } from './Config/firebase-config';
 import Login from './Routes/Login';
-
+import Chatroom from "./Routes/Chatroom";
+import Video from "./Routes/Video";
 
 
 
@@ -45,32 +39,14 @@ function App() {
   };
  
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
-        {/* path basically makes it so that when you do the url and at end
-        // when you have /register, it will lead to register page, which is
-        //denoted by the Signup file. From now on, when you do '/register' 
-        relating to axios or useNavigate, it will refer to the Signup page */}
-        
-        <Route path="/register" element={<Signup />}>
-
-        </Route>
-        
-
-
-        <Route path="/login" element={<Login />}>
-
-        </Route>
-        {/* for the home page, we set the backgroundColor of the page to whatever color is stored in 'backgroundColor' */}
-        <Route path="/home"  element={<Home colorofBack={backgroundColor}/>}> 
-        
-        </Route>
-        {/* Since the user page is going to be responsible for all settings, including changing the background color of the pages, we use a different format
-        as comapred to the home page above. We start by setting a variable called changeColor equal to the change BackgroundColor function. This basically means
-        that changeColor and changeBackgroundColor is identical, but 'changeColor' is a property that's going to be passed into the User.jsx. */}
-        <Route path="/user" element={<UserSettings backgroundColor={backgroundColor} changeColor={changeBackgroundColor}/>}> </Route>
+        <Route path="/" Component={Login}/>
+        <Route path="/chat" Component={Chatroom}/>
+        <Route path="/video" Component={Video}/>
+        <Route path="/main" Component={Main}/>
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
