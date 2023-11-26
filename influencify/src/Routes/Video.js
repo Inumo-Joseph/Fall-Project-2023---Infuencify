@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import myVideo from "./mp4ex.mp4"
 import ReactPlayer from 'react-player';
 import HeaderTrainer from '../components/Header-Trainer';
-import './Video.css'
+import {useParams} from "react-router-dom";
 function Video() {
 
   const [comment, setComment] = useState('Comment Something');
+  const video = useParams();
+  console.log("Passed URI Decoded",video);
   
   const handleInputChange = (event) => {
     setComment(event.target.value);
@@ -16,14 +17,9 @@ function Video() {
         <HeaderTrainer/>
         <div className="video-container">
           <div className="video-main">
-            {/* <video controls>
-                <source src="./mp4ex.mp4" type='video/mp4' autoplay>
-                
-                </source>
-            </video> */}
-            <ReactPlayer url={myVideo} controls={true}/>
+            <ReactPlayer url={decodeURIComponent(video)} controls={true}/>
             <p className="main-video-title">
-                Video Title
+                VIDEO TITLE
             </p>
             <p className='main-video-description'>
                 Video description Video description Video description Video description Video description Video description

@@ -19,7 +19,7 @@ function HeaderTrainer() {
 
     <div className = "container d-flex">
 
-    <a className="navbar-brand" href="#">INFUENCIFY</a>
+    <a className="navbar-brand" href="../Home">INFUENCIFY</a>
 
         <form className= "d-flex"  role="search">
         <input className="form-control " type="search" placeholder="Search" aria-label="Search"></input>
@@ -36,7 +36,7 @@ function HeaderTrainer() {
     <div className="container-fluid collapse navbar-collapse " id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#"><Home></Home> Home </a>
+          <a className="nav-link active" aria-current="page" href="../Home"><Home></Home> Home </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#"> <AccountCircle></AccountCircle> {name}</a>

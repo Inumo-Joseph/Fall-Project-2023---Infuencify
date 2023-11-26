@@ -7,8 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route, Switch, Navigate} from "react-router-dom";
 import Login from './Routes/Login'
 import Home from './Routes/Home'
+import Video from './Routes/Video'
 import UserSettings from './components/User'
-import Main from './components/Main';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { auth } from './components/firebase-config';
@@ -26,7 +26,6 @@ function App() {
   //changeBackgroundColor takes in 'newColor' as parameter which is the color of the background.
   const changeBackgroundColor=(newColor)=>{
     console.log("changing background color to: ", newColor);
-   
     //setBackgroundColor is used to change the 'backgroundColor' to store the new color--> 'newColor'
     setBackgroundColor(newColor);
     console.log("newColor color is: ", newColor);
@@ -51,7 +50,11 @@ function App() {
 
         </Route>
         /* for the home page, we set the backgroundColor of the page to whatever color is stored in 'backgroundColor'  */
-        <Route path="/Home"  Component={Home }> 
+        <Route path="/Home"  Component={Home}> 
+        
+        </Route>
+
+        <Route path="/Video/:videoId"  Component={Video}> 
         
         </Route>
         /* Since the user page is going to be responsible for all settings, including changing the background color of the pages, we use a different format
