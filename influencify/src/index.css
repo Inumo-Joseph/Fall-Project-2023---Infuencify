@@ -7,7 +7,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.code {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
+
+.Header{
+  background: linear-gradient(to bottom, rgb(114, 31, 169), rgb(12, 89, 183));
+  color: black;
+  
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+ .o{
+  background: linear-gradient(to bottom, rgb(114, 31, 169), rgb(12, 89, 183));
+
+}
+
+
+
+

@@ -1,24 +1,26 @@
+import { ForkLeft, Bookmark } from "@mui/icons-material";
 import React from "react";
 
 function Card(props)
+
+
 {
     return(
-    <div className="card p4 shadow" style={{border: "3px solid", margin: "10px", display: "inline-block", width: "258px", userSelect: "none" }}>
-        <video controls style={{width: "255px", height: "150px"}} >
-            <source src={props.source} type="video/mp4"></source>
+    <div className="card p-2 shadow  bg-black" style={{border: "3px solid", margin: "10px", display: "inline-block", minWidth: "245px", userSelect: "none", fontFamily: "sans-serif"}
+}>
+    <video src= {props.source} className="card-img-top"   style={{ display: "inline-block", maxWidth: "245px"}}>        
         </video>
-
-        <div className="card-body">
+        
+        <div className="card-body" style={{ color: "white"}}>
             <h2 className="card-title Heading2">
-                VIDEO TITLE: {props.title}
+                {props.title}
                 <div >
-                <button className="bg-primary" style={{margin: "5px"}}> CHANNEL</button>
-                <button className="bg-success"> LIKE</button>
-
                 </div>
-                
+                <a><Bookmark></Bookmark></a>
                
+                
             </h2>
+            {props.User}
         </div>
     </div>
     );

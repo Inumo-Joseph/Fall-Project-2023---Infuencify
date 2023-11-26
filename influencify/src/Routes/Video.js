@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import myVideo from "./mp4ex.mp4"
 import ReactPlayer from 'react-player';
+import HeaderTrainer from '../components/Header-Trainer';
 import './Video.css'
 function Video() {
 
@@ -12,6 +13,7 @@ function Video() {
   
     return(
       <div>
+        <HeaderTrainer/>
         <div className="video-container">
           <div className="video-main">
             {/* <video controls>

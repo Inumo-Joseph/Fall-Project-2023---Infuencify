@@ -3,27 +3,19 @@ import HeaderTrainer from './Header-Trainer'
 import VideoWheel from './VideoWheel'
 import Link from 'react-dom'
 import './index.css'
-import Uploader from '../Config/Uploader'
+import Uploader from './Uploader'
 
 function Main() 
 {
     return(
-        <div className="container-fluid">
 
-<Uploader></Uploader>
-            {/*<HeaderTrainer/>*/}
-            <div>
-            <div className="container">
-                <div className="">
-                    <p>
-                    
-                    </p>
-                </div>
+        <div className="Newsline">
 
-            </div>
-            </div>
+            <HeaderTrainer/>
            
-            {/*<VideoWheel/>  VIDEO WHEEL COMPONENT*/ } 
+            <Uploader></Uploader>
+
+            <VideoWheel/>  
                
 
             
