@@ -29,10 +29,10 @@ function App() {
     setBackgroundColor(newColor);
     console.log("newColor color is: ", newColor);
   };
- 
-  return (
 
-    <BrowserRouter>
+
+  return ( 
+    <Router>
       <Routes>
         /* path basically makes it so that when you do the url and at end
         // when you have /register, it will lead to register page, which is
