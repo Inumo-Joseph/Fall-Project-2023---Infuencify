@@ -1,72 +1,59 @@
  import React from "react";
 import useState from 'react';
 import useNavigate from 'react-router-dom';
+import {Typography} from "@mui/material";
+import { getAuth, onStateChanged} from "firebase/auth";
+import {Menu, AccountCircle, Logout, Home} from "@mui/icons-material"
+
 
 function HeaderTrainer() {
 
+  const auth = getAuth();
     let name="";
-    name="USER NAME";
+    name=auth.currentUser;
 
   return ( 
-    <nav  className="navbar navbar-expand-lg navbar-scroll navbar-dark fixed-top Button">
-        <div className="container-fluid">         
-                <a className="navbar-brand nav-link" href="">INFLUENCIFY </a>  
-                
-                <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"  aria-label="Toggle navigation" >
-                  <span className="navbar-toggler-icon justify-content-right">
+
+<nav className="navbar navbar-expand-lg bg-dark sticky-top Header">
+  <div className="container-fluid">
+
+    <div className = "container d-flex">
+
+    <a className="navbar-brand" href="#">INFUENCIFY</a>
+
+        <form className= "d-flex"  role="search">
+        <input className="form-control " type="search" placeholder="Search" aria-label="Search"></input>
+        </form>
+
+       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+       <span className="material-symbols-outlined">
+       <Menu></Menu>
+       </span>
+      </button>
+      </div>
+
     
-                  </span >     
-                          
-                  </button>
-                  
-                  <div className="container d-flex justify-content-center " style={{top: ""}}>
-                   <form className="navbar-search" onSubmit={() => {}}>
-                    <input type="search" className ="form-control me-5 searchbar"  placeholder="Search..." >
-                     </input>
-                    </form>
-                     </div>
+    <div className="container-fluid collapse navbar-collapse " id="navbarNav">
+      <ul className="navbar-nav">
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="#"><Home></Home> Home </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#"> <AccountCircle></AccountCircle> {name}</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#"><Logout></Logout></a>
+        </li>
+        <li className="nav-item">
+        </li>
+      </ul>
+    </div>
 
-                  <div className="collapse navbar-collapse" id="navbarNav">
-                 
-                  <button type="button">
-                        CREATE
-                    </button>
-                 
-                  <ul className="navbar-nav">
-                   
-                        <li className="nav-item active">
-                        <a className="nav-link " href="index.html">
-                        
-                        </a>
-                        </li>
-                        <li className="nav-item active">
-                            <a className="nav-link " href="" id="navbarDropdown" data-bs-toggle= "dropdown" aria-expanded="false">
-                            PROFILE
-                            </a>   
-                                 
-                        </li> 
+   
 
-                        <li className="nav-item active">
-                            <a className="nav-link" href="">
-                                CHANNEL
-                            </a>                            
-                        </li> 
-                        <li className="nav-item active">
-                            <div className=" container">
-                            <span>
-                            <a>
-                               {name}
-                            </a> 
-                            </span>
-                            </div>
-                                                       
-                        </li> 
-                    </ul>
-                 </div> 
-                   
-        </div>
-        
-    </nav>
+  </div>
+</nav>
+
     
   );
 
