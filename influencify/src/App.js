@@ -37,8 +37,8 @@ function App() {
     setBackgroundColor(newColor);
     console.log("newColor color is: ", newColor);
   };
- 
-  return (
+
+  return ( 
     <Router>
       <Routes>
         <Route path="/" Component={Login}/>
