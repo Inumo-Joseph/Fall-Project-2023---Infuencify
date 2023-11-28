@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import myVideo from "../mp4ex.mp4"
 import ReactPlayer from 'react-player';
-import '../Video.css'
+import HeaderTrainer from '../components/Header-Trainer';
+import './Video.css'
 function Video() {
 
   const [comment, setComment] = useState('Comment Something');
@@ -12,6 +13,7 @@ function Video() {
   
     return(
       <div>
+        <HeaderTrainer/>
         <div className="video-container">
           <div className="video-main">
             {/* <video controls>

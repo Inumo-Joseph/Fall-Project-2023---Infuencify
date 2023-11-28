@@ -1,12 +1,12 @@
 .PageLayout
 {
-   margin-top: 80px;
-   padding-bottom: 50px;
-   padding-left: 50px;
-   box-sizing: border-box;
+   margin-bottom: 100px;
+   margin-top: 50px;
    border-color: black;
    border: solid;
-   background-color: rgb(138, 151, 209);
+   height: auto;
+   position: relative;
+   
 
 }
 
@@ -25,11 +25,10 @@ background-color: rgb(165, 93, 159);
 
 .Newsline
 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
-    background-color: gray;
-    min-height: 200px;
-    width: 1500px;
-    color: aqua;
+    background: linear-gradient(to bottom, rgb(255, 243, 255), rgb(245, 248, 255));
+
 }
 
 .Heading1
