@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import myVideo from "../mp4ex.mp4"
 import ReactPlayer from 'react-player';
 import HeaderTrainer from '../components/Header-Trainer';
 import {useParams} from "react-router-dom";

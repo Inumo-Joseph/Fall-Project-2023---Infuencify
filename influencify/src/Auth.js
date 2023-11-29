@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { auth, googleProvider } from './components/firebase-config'
 import { createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 export const Auth = () => {
     const [email, setEmail] = useState("");
@@ -8,7 +11,8 @@ export const Auth = () => {
 
     const signIn = async() =>{
         try{
-            await createUserWithEmailAndPassword(auth, email, password);
+            const result = await createUserWithEmailAndPassword(auth, email, password);
+            cookies.set("auth-token", result.user.refreshToken);
         } catch(err){
             console.error(err);
         }
@@ -17,7 +21,8 @@ export const Auth = () => {
 
     const signInWithGoogle = async() =>{
         try{
-            await signInWithPopup(auth, googleProvider);
+            const result = await signInWithPopup(auth, googleProvider);
+            cookies.set("auth-token", result.user.refreshToken);
         } catch(err){
             console.log(err);
         }

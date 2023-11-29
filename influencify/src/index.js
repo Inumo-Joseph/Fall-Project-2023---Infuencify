@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import Chatroom from './Routes/Chatroom';
 import Main from './components/Main';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -10,7 +11,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 export const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App/>
+    <App />
+    {/* <Chatroom /> */}
   </React.StrictMode>
 );
 

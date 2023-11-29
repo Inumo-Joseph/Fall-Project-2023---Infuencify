@@ -1,7 +1,5 @@
 
 import "./App.css";
-import React from 'react'
-import {useState, useEffect} from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 //import Signup from "./Signup";
 import { BrowserRouter, Routes, Route, Switch, Navigate} from "react-router-dom";
