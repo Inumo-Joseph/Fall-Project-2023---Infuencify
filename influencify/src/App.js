@@ -1,6 +1,7 @@
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {useState } from"react";
 //import Signup from "./Signup";
 import { BrowserRouter, Routes, Route, Switch, Navigate} from "react-router-dom";
 import Login from './Routes/Login'
@@ -30,8 +31,11 @@ function App() {
   };
  
   return (
-
+ 
     <BrowserRouter>
+  
+    
+
       <Routes>
         /* path basically makes it so that when you do the url and at end
         // when you have /register, it will lead to register page, which is
@@ -64,7 +68,7 @@ function App() {
         
         </Routes>
 
-        <div root="App">
+        <div root="App">  
         
         </div>
     </BrowserRouter>
