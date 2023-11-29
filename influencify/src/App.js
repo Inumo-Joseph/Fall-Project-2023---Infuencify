@@ -2,14 +2,16 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 //import Signup from "./Signup";
-import { BrowserRouter, Routes, Route, Switch, Navigate} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Switch, Navigate} from "react-router-dom";
 import Login from './Routes/Login'
 import Home from './Routes/Home'
-import UserSettings from './components/User'
+import UserSettings from './components/idk'
 import Main from './components/Main';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { auth } from './components/firebase-config';
+import { auth } from './Config/firebase-config';
+import React, { useState, useEffect } from "react";
+import Chatroom from "./Routes/Chatroom";
 
 function App() {
   // MAIN IDEA of changing background color across all pages simultaneously based on color chosen at the user page: 
@@ -57,14 +59,16 @@ function App() {
         that changeColor and changeBackgroundColor is identical, but 'changeColor' is a property that's going to be passed into the User.jsx. */
         
         <Route path="/user" Component={UserSettings}> 
+        
         </Route>
         
+        <Route path="/chat" Component={Chatroom}/>
         </Routes>
 
         <div root="App">
         
         </div>
-    </BrowserRouter>
+    </Router>
 
    
 

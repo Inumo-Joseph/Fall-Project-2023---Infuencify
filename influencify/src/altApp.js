@@ -6,7 +6,7 @@ import Signup from "./Components/Signup";
 import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
 import Login from "./Components/Login";
 import Home from "./Home";
-import UserSettings from "./Components/User";
+import UserSettings from "./components/idk";
 import Auth from "./Auth";
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "./contexts/AuthContext";

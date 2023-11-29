@@ -6,7 +6,7 @@ import Card from './Card';
 import {getStorage, getDownloadURL, ref, listAll} from 'firebase/storage';
 import { KeyboardArrowLeft,KeyboardArrowRight, KeyboardDoubleArrowRight, TimeToLeave} from '@mui/icons-material';
 import { doc, setDoc, collection, getDocs} from "firebase/firestore";
-import { db, storage} from "./firebase-config";
+import { db, storage} from "../Config/firebase-config";
 import { getAuth, onStateChanged} from "firebase/auth";
 
 function VideoWheel()

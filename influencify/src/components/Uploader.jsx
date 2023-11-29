@@ -1,6 +1,6 @@
 import { useState, React} from 'react';
 import { ref, getDownloadURL,uploadBytesResumable, updateMetadata  } from "firebase/storage";
-import { db, storage} from "./firebase-config";
+import { db, storage} from "../Config/firebase-config";
 import { doc, setDoc, collection} from "firebase/firestore";
 import { getAuth, onStateChanged} from "firebase/auth";
 import { label }  from '@mui/icons-material';
