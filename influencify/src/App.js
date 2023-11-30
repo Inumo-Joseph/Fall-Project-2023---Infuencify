@@ -3,7 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 //import Signup from "./Signup";
 import { BrowserRouter as Router, Routes, Route, Switch, Navigate} from "react-router-dom";
-import Login from './Routes/Login'
+import LoginOfficial from './Components_TRUE/Login'
 import Home from './Routes/Home'
 import UserSettings from "./Components_TRUE/idk";
 import Main from "./Components_TRUE/Main";
@@ -12,6 +12,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { auth } from './Config/firebase-config';
 import React, { useState, useEffect } from "react";
 import Chatroom from "./Routes/Chatroom";
+import PrivateRoute from "./Components_TRUE/PrivateRoute";
+import ForgotPassword from "./Components_TRUE/ForgotPassword";
+import UpdateProfile from "./Components_TRUE/updateProfile";
+import { AuthProvider } from "./contexts/AuthContext";
+import Signup from "./Components_TRUE/Signup";
+import { useAuth } from './contexts/AuthContext'
+
+
 
 function App() {
   // MAIN IDEA of changing background color across all pages simultaneously based on color chosen at the user page: 
@@ -22,18 +30,10 @@ function App() {
   // based on the color chosen at the user page. More details follow with the below comments.
 
   //below code creates a state called backgroundColor. This variable would be responsible for storing the color of the background.
-  const [backgroundColor, setBackgroundColor]=useState("white");
-  //changeBackgroundColor takes in 'newColor' as parameter which is the color of the background.
-  const changeBackgroundColor=(newColor)=>{
-    console.log("changing background color to: ", newColor);
-   
-    //setBackgroundColor is used to change the 'backgroundColor' to store the new color--> 'newColor'
-    setBackgroundColor(newColor);
-    console.log("newColor color is: ", newColor);
-  };
-
+  
 
   return ( 
+    <AuthProvider>
     <Router>
       <Routes>
         /* path basically makes it so that when you do the url and at end
@@ -46,12 +46,24 @@ function App() {
            
          </Route>
         */}
-         
-        <Route path="/login" Component={Login}>
+        <Route
+            path="/update-profile"
+            element={<PrivateRoute><UpdateProfile /></PrivateRoute>}
+          ></Route>
+           <Route path="/register" element={<Signup />}></Route>
+           <Route path="/login" element={<LoginOfficial />}></Route>
+           <Route path="/forgot-password" element={<ForgotPassword />}></Route>
+           <Route
+            exact
+            path="/"
+            element={
+              <PrivateRoute><UserSettings /></PrivateRoute>
+            }>
+          </Route>
 
-        </Route>
+       
         /* for the home page, we set the backgroundColor of the page to whatever color is stored in 'backgroundColor'  */
-        <Route path="/Home"  Component={Home }> 
+        <Route path="/Home"  Component={Main }> 
         
         </Route>
         /* Since the user page is going to be responsible for all settings, including changing the background color of the pages, we use a different format
@@ -69,7 +81,7 @@ function App() {
         
         </div>
     </Router>
-
+    </AuthProvider>
    
 
   );

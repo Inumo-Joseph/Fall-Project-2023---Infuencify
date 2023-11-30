@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useId, useState} from 'react'
-import {auth, firestore} from '../Config/firebase-config'
+import {auth, db} from '../Config/firebase-config'
 import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateEmail, updatePassword as updatePasswordInAuth, updateProfile} from 'firebase/auth';
 import { collection, addDoc, getDocs, where, query, doc, setDoc } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged} from "firebase/auth";
@@ -12,7 +12,7 @@ export function AuthProvider({children}){
     const [currentUser, setCurrentUser]=useState()
     const [loading, setLoading]=useState(true)
     async function isDisplayNameUnique(displayName){
-        const usersCollection=collection(firestore,'users');
+        const usersCollection=collection(db,'users');
         const q=query (usersCollection, where('displayName', '==', displayName));
         const querySnapshot= await getDocs(q);
         return querySnapshot.size===0;
@@ -41,7 +41,7 @@ export function AuthProvider({children}){
 
             await updateProfile(userCredential.user, {displayName});
 
-            const usersCollection=collection(firestore, 'users');
+            const usersCollection=collection(db, 'users');
             const usersSnapshot=await getDocs(usersCollection);
             const userCount=usersSnapshot.size+1;
 
