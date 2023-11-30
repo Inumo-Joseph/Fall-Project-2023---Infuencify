@@ -2,17 +2,17 @@ import "./App.css";
 import React from "react";
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Signup from "./Components/Signup";
+import Signup from "./Components_TRUE/Signup";
 import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
-import Login from "./Components/Login";
+import LoginOfficial from "./Components_TRUE/Login";
 import Home from "./Home";
-import UserSettings from "./components/idk";
+import UserSettings from "./Components_TRUE/idk";
 import Auth from "./Auth";
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "./contexts/AuthContext";
-import PrivateRoute from "./Components/PrivateRoute";
-import ForgotPassword from "./Components/ForgotPassword";
-import UpdateProfile from "./Components/updateProfile";
+import PrivateRoute from "./Components_TRUE/PrivateRoute";
+import ForgotPassword from "./Components_TRUE/ForgotPassword";
+import UpdateProfile from "./Components_TRUE/updateProfile";
 
 function AltApp() {
   
@@ -34,7 +34,7 @@ function AltApp() {
           ></Route>
           <Route path="/register" element={<Signup />}></Route>
 
-          <Route path="/login" element={<Login />}></Route>
+          <Route path="/login" element={<LoginOfficial />}></Route>
           {/* for the home page, we set the backgroundColor of the page to whatever color is stored in 'backgroundColor' */}
           <Route path="/forgot-password" element={<ForgotPassword />}></Route>
           <Route

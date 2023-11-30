@@ -1,6 +1,5 @@
 import React from 'react'
-import Main from "../components/Main"
-
+import Main from '../Components_TRUE/Main';
 
 function Home()
 

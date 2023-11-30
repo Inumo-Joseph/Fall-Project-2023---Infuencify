@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Card, Form, Button, Alert } from "react-bootstrap";
 import React, { useRef } from "react";
 import {useAuth} from '../contexts/AuthContext'
-import Header from "../Components/Header"
+import Header from "./Header";
 function UpdateProfile() {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -95,4 +95,4 @@ function UpdateProfile() {
   );
 
 }
-export default UpdateProfile
+export default UpdateProfile;

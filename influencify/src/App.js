@@ -5,8 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route, Switch, Navigate} from "react-router-dom";
 import Login from './Routes/Login'
 import Home from './Routes/Home'
-import UserSettings from './components/idk'
-import Main from './components/Main';
+import UserSettings from "./Components_TRUE/idk";
+import Main from "./Components_TRUE/Main";
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { auth } from './Config/firebase-config';

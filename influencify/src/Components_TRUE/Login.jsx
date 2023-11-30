@@ -6,7 +6,7 @@ import { Card, Form, Button, Alert } from "react-bootstrap";
 import React, { useRef } from "react";
 import {useAuth} from '../contexts/AuthContext'
 
-function Login() {
+function LoginOfficial() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const navigate=useNavigate();
@@ -63,4 +63,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginOfficial;
