@@ -66,11 +66,12 @@ function App() {
         <Route path="/user" Component={UserSettings}> 
         </Route>
         
-        </Routes>
-
         <div root="App">  
         
         </div>
+        </Routes>
+
+      
     </BrowserRouter>
 
    
