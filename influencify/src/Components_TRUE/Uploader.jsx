@@ -1,6 +1,6 @@
 import { useState, React} from 'react';
 import { ref, getDownloadURL,uploadBytesResumable, updateMetadata  } from "firebase/storage";
-import { db, storage, auth} from "./firebase-config";
+import { db, storage} from "../Config/firebase-config";
 import { doc, setDoc, collection} from "firebase/firestore";
 import { getAuth, onStateChanged} from "firebase/auth";
 import { label }  from '@mui/icons-material';
@@ -26,6 +26,7 @@ function Uploader() {
     const [username, setUsername] = useState('');
     const [genre, setGenre] = useState('');
     const [url, setUrl] = useState('');
+    const [description, setDescription] = useState('');
   
 
     const handleClick = async () => {
@@ -68,6 +69,7 @@ function Uploader() {
               username: username,
               genre: genre,
               videoUrl: downloadURL, // Use the downloadURL obtained earlier
+              description: description
             }, {merge: true} );
             
             
@@ -79,6 +81,7 @@ function Uploader() {
             setGenre('');
             setFile(null);
             setUrl('');
+            setDescription('')
   
             console.log('ADDED DOC');
           }
@@ -110,14 +113,16 @@ function Uploader() {
         <form className="form">
         <label>
             USERNAME:{()=>setUsername(username.concat(displayName))}
-          </label> 
-          <label>
-            {displayName}
           </label>
           <br />
           <label>
             VIDEO TITLE:
             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+          </label>
+          <br />
+          <label>
+            VIDEO DESCRIPTION:
+            <input type="text" value={title} onChange={(e) => setDescription(e.target.value)} />
           </label>
           <br />
           

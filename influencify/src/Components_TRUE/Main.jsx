@@ -12,8 +12,6 @@ function Main()
         <div className="Newsline">
 
             <HeaderTrainer/>
-           
-            <Uploader></Uploader>
 
             <VideoWheel/>  
                
@@ -24,4 +22,4 @@ function Main()
     )
 }
   
-export default Main
+export default Main;
