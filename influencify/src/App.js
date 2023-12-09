@@ -1,24 +1,24 @@
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {useState,  useEffect} from"react";
 //import Signup from "./Signup";
-import { BrowserRouter as Router, Routes, Route, Switch, Navigate} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Switch, Navigate, BrowserRouter} from "react-router-dom";
 import LoginOfficial from './Components_TRUE/Login'
 import Home from './Routes/Home'
+import Video from './Routes/Video'
 import UserSettings from "./Components_TRUE/idk";
 import Main from "./Components_TRUE/Main";
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { auth } from './Config/firebase-config';
-import React, { useState, useEffect } from "react";
 import Chatroom from "./Routes/Chatroom";
 import PrivateRoute from "./Components_TRUE/PrivateRoute";
 import ForgotPassword from "./Components_TRUE/ForgotPassword";
 import UpdateProfile from "./Components_TRUE/updateProfile";
 import { AuthProvider } from "./contexts/AuthContext";
 import Signup from "./Components_TRUE/Signup";
-import { useAuth } from './contexts/AuthContext'
-
+import User from "./Routes/User";
 
 
 function App() {
@@ -30,11 +30,20 @@ function App() {
   // based on the color chosen at the user page. More details follow with the below comments.
 
   //below code creates a state called backgroundColor. This variable would be responsible for storing the color of the background.
-  
-
-  return ( 
-    <AuthProvider>
-    <Router>
+  const [backgroundColor, setBackgroundColor]=useState("white");
+  //changeBackgroundColor takes in 'newColor' as parameter which is the color of the background.
+  const changeBackgroundColor=(newColor)=>{
+    console.log("changing background color to: ", newColor);
+   
+    //setBackgroundColor is used to change the 'backgroundColor' to store the new color--> 'newColor'
+    setBackgroundColor(newColor);
+    console.log("newColor color is: ", newColor);
+  };
+ 
+  return (
+      
+          <AuthProvider>
+          <BrowserRouter>
       <Routes>
         /* path basically makes it so that when you do the url and at end
         // when you have /register, it will lead to register page, which is
@@ -63,26 +72,40 @@ function App() {
 
        
         /* for the home page, we set the backgroundColor of the page to whatever color is stored in 'backgroundColor'  */
-        <Route path="/Home"  Component={Main }> 
         
+        
+        <Route path="/Home"  element={<PrivateRoute><Home/></PrivateRoute>}> 
+       
         </Route>
+       
         /* Since the user page is going to be responsible for all settings, including changing the background color of the pages, we use a different format
         as comapred to the home page above. We start by setting a variable called changeColor equal to the change BackgroundColor function. This basically means
         that changeColor and changeBackgroundColor is identical, but 'changeColor' is a property that's going to be passed into the User.jsx. */
         
-        <Route path="/user" Component={UserSettings}> 
+        <Route path="/user" Component={User}> 
         
         </Route>
         
-        <Route path="/chat" Component={Chatroom}/>
+        <Route path="/chat" Component={Chatroom}>
+
+        </Route>
+
+        <Route path="/Video/:videoId" element={<Video key={window.location.pathname}></Video>}>
+        
+        </Route>
+
+
         </Routes>
+
+        
+
 
         <div root="App">
         
         </div>
-    </Router>
-    </AuthProvider>
-   
+        </BrowserRouter>
+            </AuthProvider>
+    
 
   );
 }

@@ -1,17 +1,17 @@
 import React, {useRef, useState, useEffect} from "react";
 import { Auth } from "../Auth";
-import Cookies from "universal-cookie";
 import {Chat} from './Chat'
-import { addDoc, collection, onSnapshot, query, serverTimestamp, where, orderBy } from "firebase/firestore";
+import { addDoc, collection, onSnapshot, query, serverTimestamp, where, orderBy, getDocs } from "firebase/firestore";
 import { auth, db } from "../Config/firebase-config";
-
-const cookies = new Cookies();
+import '../Styles/Chatroom.css';
+import HeaderTrainer from "../Components_TRUE/Header-Trainer";
 
 function Chatroom(){
     const roomRef = collection(db, "rooms");
     const[newRoom, setNewRoom] = useState();
     const[room, setRoom] = useState('');
     const [chatRooms, setChatRooms] = useState([]);
+    let banned_array = [];
     const createRoom = async(e) =>{
         e.preventDefault();
         if(newRoom == "") return;
@@ -23,14 +23,29 @@ function Chatroom(){
         setNewRoom('');
     };
 
-    const changeRoom = (roomname) =>{
-         // Set room to empty temporarily
+    const changeRoom = async (roomname) =>{
+    const banState = await isUserBanned(auth.currentUser.displayName, roomname);
+    if(banState){
+        console.log("User is banned");
+        return;
+    }
     setRoom('');
-    // setRoom(roomname);
-    // After a short delay, set room to the desired value
     setTimeout(() => {
         setRoom(roomname);
-    }, 100); // Adjust the delay as needed
+    }, 100); 
+    }
+
+    const isUserBanned = async(user_name, room_name) =>{
+        banned_array = [];
+        const bannedRef = collection(db, "banned-users");
+        const banned_query = query(bannedRef, where("username","==", user_name), where("room","==",room_name));
+        const banned_snapshot = await getDocs(banned_query);
+
+        banned_snapshot.forEach((doc) =>{
+            banned_array.push({...doc.data(), id:doc.id});
+        });
+        console.log(banned_array);
+        return banned_array.length != 0;
     }
 
     useEffect(()=>{
@@ -49,36 +64,30 @@ function Chatroom(){
     const roomInputRef = useRef(null);
     return(
         <div>
+            <HeaderTrainer></HeaderTrainer>
+            <h1>Start Chatting </h1>
+            <h2>Create a New Room</h2>
             <form onSubmit={createRoom}>
-                <input placeholder="Choose Room Name" onChange={(e) => setNewRoom(e.target.value)} value={newRoom}/>
+                <input className="createRoom-box" placeholder="Create Room, Enter a Name For New Room" onChange={(e) => setNewRoom(e.target.value)} value={newRoom}/>
                 <button type="submit">Submit</button>
             </form>
 
-            <button onClick={()=> setRoom()}>Reset Room</button>
-            
-            {room ? (
-                <Chat room={room}/>
-            ) : (<div></div>)}
+            {/* <button onClick={()=> setRoom()}>Reset Room</button> */}
 
-                {/* <div className="room">
-                    <label>Enter room name: </label>
-                    <input ref={roomInputRef}/>
-                    <button onClick={() => setRoom(roomInputRef.current.value)}>Enter Chat</button>
-                </div> */}
-
-            <div>
-                {chatRooms.map((chatRoom) => (
-                    <div key={chatRoom.id}>
-                        <button ref={roomInputRef} onClick={()=>changeRoom(chatRoom.room_name)}>{chatRoom.room_name}</button>
-                    </div>
-                ))}
-            </div>
-
-            {/* {room && (
-                <div>
-                    <Chat room={room} />
+            <div className="chatplace-div">
+                <div className="list-chats">
+                    {chatRooms.map((chatRoom) => (
+                        <div key={chatRoom.id}>
+                            <button className='room-button' ref={roomInputRef} onClick={()=>changeRoom(chatRoom.room_name)}>{chatRoom.room_name}</button>
+                        </div>
+                    ))}
                 </div>
-            )} */}
+                <div className="room-div">
+                    {room ? (
+                        <Chat room={room}/>
+                    ) : (<div></div>)}
+                </div>
+            </div>
         </div>
     )
 }

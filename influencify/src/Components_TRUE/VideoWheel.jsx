@@ -8,6 +8,10 @@ import { KeyboardArrowLeft,KeyboardArrowRight, KeyboardDoubleArrowRight, TimeToL
 import { doc, setDoc, collection, getDocs} from "firebase/firestore";
 import { db, storage} from "../Config/firebase-config";
 import { getAuth, onStateChanged} from "firebase/auth";
+import {Link } from 'react-router-dom';
+
+
+
 
 function VideoWheel()
 
@@ -51,10 +55,10 @@ function VideoWheel()
 
 return ( 
 
-<div className="container-fluid column-md-6 " style ={{backgroundColor: "red"}}>
+<div className="container-fluid column-md-6 " style ={{backgroundColor: ""}}>
 
 
-<div className="PageLayout" style ={{backgroundColor: "blue"}}>
+<div className="PageLayout" style ={{backgroundColor: ""}}>
     
 <div id ="myCarousel2" className="carousel slide">  
     <div className="column-md-4">
@@ -68,11 +72,16 @@ return (
     <div className="carousel-inner">
         <div className="carousel-item active"> 
         { 
+        
         videoData.slice(0,4).map((video, index) => ( 
+            
+        <Link to={`../video/${encodeURIComponent(index)}`}>
+         <Card key = {index} title={video.Title} source= {video.videoUrl} User={video.username}/> 
         
-        <Card key = {index} title={video.Title} source= {video.videoUrl} User={video.username}/> 
-        
-        ))}
+        </Link>
+
+))}
+
          </div>
 
     <div className="carousel-item"> 
@@ -80,8 +89,11 @@ return (
     { videoData.slice(4,videoData.length).map((video, index) => (
         
        
-        <Card key = {index} title={video.Title} source= {video.videoUrl} User={video.username}/> 
-        
+          <Link to={`../video/${encodeURIComponent(video.videoUrl)}`}>
+            
+            <Card key = {index} title={video.Title} source= {video.videoUrl} User={video.username}/> 
+           
+           </Link>        
         ))}
 
 
@@ -103,11 +115,12 @@ return (
   </button>
         
     </div>
-    <div className="carousel-indicators">
+    
+        
+        </div>
+        <div className="carousel-indicators">
         <button type="button" data-bs-target="#myCarousel2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#myCarousel2" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        </div>
-        
         </div>
     </div>
     
@@ -129,8 +142,11 @@ return (
         { videoData.slice(0,4).map((video, index) => (
      
      userTagsArray.some(tag => video.genre.includes(tag)) ? (
-        <Card key={index} title={video.Title} source={video.videoUrl} User={video.username}/>
-      ) : null
+        <Link to={`../video/${encodeURIComponent(video.videoUrl)}`}>
+            
+        <Card key = {index} title={video.Title} source= {video.videoUrl} User={video.username}/> 
+       
+       </Link>         ) : null
 
         ))}
          </div>
@@ -140,8 +156,11 @@ return (
     { videoData.slice(4,videoData.length).map((video, index) => (
         
         userTagsArray.some(tag => video.genre.includes(tag)) ? (
-            <Card key={index} title={video.Title} source={video.videoUrl} User={video.username}/>
-          ) : null
+            <Link to={`../video/${encodeURIComponent(video.videoUrl)}`}>
+            
+            <Card key = {index} title={video.Title} source= {video.videoUrl} User={video.username}/> 
+           
+           </Link>       ) : null
             
         ))}
 

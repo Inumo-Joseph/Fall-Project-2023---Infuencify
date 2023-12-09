@@ -8,7 +8,9 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Card, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import UpdateProfile from "./updateProfile";
-import Header from "./Header"
+import HeaderTrainer from "./Header-Trainer";
+import Uploader from './Uploader'
+
 //Taking changeColor as a parameter here. 'changeColor' is coming from the app.js file. Remember that 'changeColor' is a function that is equivalent to 'changeBackgroundColor' function.
 function UserSettings({ changeColor, backgroundColor }) {
   const [error, setError] = useState("");
@@ -28,7 +30,8 @@ const navigate=useNavigate()
 
   return (
     <div>
-      <Header></Header>
+      <HeaderTrainer></HeaderTrainer>
+      <Uploader></Uploader>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Profile</h2>

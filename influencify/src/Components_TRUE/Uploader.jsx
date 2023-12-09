@@ -26,6 +26,7 @@ function Uploader() {
     const [username, setUsername] = useState('');
     const [genre, setGenre] = useState('');
     const [url, setUrl] = useState('');
+    const [description, setDescription] = useState('');
   
 
     const handleClick = async () => {
@@ -68,6 +69,7 @@ function Uploader() {
               username: username,
               genre: genre,
               videoUrl: downloadURL, // Use the downloadURL obtained earlier
+              description: description
             }, {merge: true} );
             
             
@@ -79,6 +81,7 @@ function Uploader() {
             setGenre('');
             setFile(null);
             setUrl('');
+            setDescription('')
   
             console.log('ADDED DOC');
           }
@@ -115,6 +118,11 @@ function Uploader() {
           <label>
             VIDEO TITLE:
             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+          </label>
+          <br />
+          <label>
+            VIDEO DESCRIPTION:
+            <input type="text" value={title} onChange={(e) => setDescription(e.target.value)} />
           </label>
           <br />
           

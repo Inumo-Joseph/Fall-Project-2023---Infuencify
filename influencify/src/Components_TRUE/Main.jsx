@@ -12,8 +12,6 @@ function Main()
         <div className="Newsline">
 
             <HeaderTrainer/>
-           
-            <Uploader></Uploader>
 
             <VideoWheel/>  
                

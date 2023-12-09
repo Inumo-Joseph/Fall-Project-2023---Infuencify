@@ -7,6 +7,7 @@ import React, { useRef } from "react";
 import {useAuth} from '../contexts/AuthContext'
 
 function Signup() {
+  
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
