@@ -1,12 +1,18 @@
 .PageLayout
 {
-   margin-bottom: 100px;
+   margin-bottom: 50px;
    margin-top: 50px;
    border-color: black;
    border: solid;
    height: auto;
    position: relative;
    
+
+}
+.background
+{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: linear-gradient(to bottom, rgb(114, 31, 169), rgb(12, 89, 183));
 
 }
 

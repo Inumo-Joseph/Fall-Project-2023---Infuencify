@@ -9,9 +9,8 @@ import Home from './Routes/Home'
 import Video from './Routes/Video'
 import UserSettings from "./Components_TRUE/idk";
 import Main from "./Components_TRUE/Main";
-import './index.css';
+import './Styles/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { auth } from './Config/firebase-config';
 import Chatroom from "./Routes/Chatroom";
 import PrivateRoute from "./Components_TRUE/PrivateRoute";
 import ForgotPassword from "./Components_TRUE/ForgotPassword";
@@ -41,7 +40,7 @@ function App() {
   };
  
   return (
-      
+           <div className="o">
           <AuthProvider>
           <BrowserRouter>
       <Routes>
@@ -105,7 +104,7 @@ function App() {
         </div>
         </BrowserRouter>
             </AuthProvider>
-    
+            </div>
 
   );
 }

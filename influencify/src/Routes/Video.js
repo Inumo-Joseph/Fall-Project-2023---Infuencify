@@ -24,7 +24,7 @@ function Video() {
   const {videoId} = useParams();
   var videoData;
   var vidIndex=decodeURIComponent(videoId);
-
+ 
   console.log("Index Recieved", vidIndex);
 
   const handleInputChange = (event) => {
@@ -60,7 +60,7 @@ const getData = async  ()  => {
       // Loop through the documents
       //
 
-       const doc = querySnapshot.docs[JSON.parse(localStorage.getItem('key'))];
+       const doc = querySnapshot.docs[vidIndex];
        
 
         videoData = doc.data();
@@ -95,7 +95,7 @@ const getData = async  ()  => {
   */}
 
     return(
-      <div>
+      <div className=""> 
         <HeaderTrainer/>
         <br></br>
         
@@ -212,10 +212,7 @@ const getData = async  ()  => {
         
             
             </div>
-            <div className="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel2" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#myCarousel2" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            </div>
+            
         </div>
         
       
