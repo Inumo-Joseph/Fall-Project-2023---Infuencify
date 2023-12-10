@@ -55,7 +55,7 @@ function VideoWheel()
 
 return ( 
 
-<div className="container-fluid column-md-6 " style ={{backgroundColor: ""}}>
+<div className="container-fluid column-md-6 Header" style ={{backgroundColor: ""}}>
 
 
 <div className="PageLayout" style ={{backgroundColor: ""}}>
@@ -118,10 +118,7 @@ return (
     
         
         </div>
-        <div className="carousel-indicators">
-        <button type="button" data-bs-target="#myCarousel2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#myCarousel2" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        </div>
+        
     </div>
     
   
