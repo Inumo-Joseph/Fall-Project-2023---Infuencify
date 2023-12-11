@@ -6,7 +6,7 @@ function Card(props)
 
 {
     return(
-    <div   className="card p-2 shadow  bg-black" style={{border: "3px solid", margin: "10px", display: "inline-block", minWidth: "245px", userSelect: "none", fontFamily: "sans-serif"}
+    <div   className="card p-2 shadow  bg-black" style={{border: "3px solid", margin: "10px", display: "inline-block", minWidth: "245px", userSelect: "none", fontFamily: "Franklin Gothic Medium"}
 }>
     <video src= {props.source} className="card-img-top"   style={{ display: "inline-block", maxWidth: "245px"}}>        
         </video>

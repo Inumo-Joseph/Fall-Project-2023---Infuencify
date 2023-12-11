@@ -17,10 +17,15 @@ body {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
+.Headcomp
+{
+  background: linear-gradient(to bottom, rgb(114, 31, 169), rgb(121, 31, 169));  
+ 
 
- .o{
-  background: linear-gradient(to bottom, rgb(114, 31, 169), rgb(12, 89, 183));
+}
 
+ .Video-font{
+font-size: "50px";
 }
 
 

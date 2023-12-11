@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import myVideo from "../mp4ex.mp4"
 import ReactPlayer from 'react-player';
 import HeaderTrainer from '../Components_TRUE/Header-Trainer'
-import {useParams} from "react-router-dom";
-import { CommentsDisabledOutlined, ContactSupportOutlined } from '@mui/icons-material';
+import {useParams, useNavigate} from "react-router-dom";
 import { doc, collection, getDoc, getDocs, where, query, limit} from "firebase/firestore";
 import { db, storage} from "../Config/firebase-config";
 import Card from '../Components_TRUE/Card';
 import {Link } from 'react-router-dom';
-import { KeyboardArrowLeft,KeyboardArrowRight, KeyboardDoubleArrowRight, TimeToLeave} from '@mui/icons-material';
+import { KeyboardArrowLeft,ArrowCircleLeft, ArrowCircleRight, KeyboardDoubleArrowRight, AccountCircle} from '@mui/icons-material';
 import Comments from './Comments';
+
 
 function Video() {
   const UserTags="Beauty Comedy";
+  const navigate=useNavigate()
   const userTagsArray = UserTags.split(' ');
   const [userName,setUserName]= useState('');
   const [videoURL, setVideoURL] = useState('');
@@ -20,23 +20,20 @@ function Video() {
   const [description, setDescription] = useState('');
   const [videoWheel, setVideoWheel] =useState([]);
   const [loading, setLoading] = useState(true);
-  const [comment, setComment] = useState('Comment Something');
   const {videoId} = useParams();
   var videoData;
   var vidIndex=decodeURIComponent(videoId);
- 
   console.log("Index Recieved", vidIndex);
+  
 
-  const handleInputChange = (event) => {
-    setComment(event.target.value);
-    
-  };
+
 
   const handleClick = (index) =>
   {
-    vidIndex=index;
-    window.location.reload();
-    console.log("NEW INDEX", index)
+   
+    navigate(`../video/${encodeURIComponent(index)}`);
+
+    
   }
 
   //grabs the videos to display and for the video WHeel
@@ -64,7 +61,6 @@ const getData = async  ()  => {
        
 
         videoData = doc.data();
-        console.log("VIDEO FOUND", videoData);
         setVideoURL(videoData['videoUrl']);
         setVideoTitle(videoData['Title']);
         setUserName(videoData['username']);
@@ -84,10 +80,8 @@ const getData = async  ()  => {
     };  
 
     useEffect(() => {
-         
-    
       getData(); 
-    }, [] ); 
+    }, [videoId] ); 
 
 
 {/*
@@ -98,15 +92,13 @@ const getData = async  ()  => {
       <div className=""> 
         <HeaderTrainer/>
         <br></br>
-        
-      <div className="container">
      
 
-      <div className="container d-flex">
+      <div className="container d-flex ">
   <div className="row">
     <div className="col-sm-8">
     <div className="video-container container-fluid">
-          <div className="video-main">
+          <div className="col">
            
            {loading ? (
              <p>Loading...</p>
@@ -114,17 +106,18 @@ const getData = async  ()  => {
             <ReactPlayer url={videoURL} controls={true} style={{ width: '300px' }} />
           )}
          
-            <p className="main-video-title ">
+            <p className="main-video-title Heading1 ">
               
                 {videoTitle}
             </p>
 
-            <p className="main-video-user">
-              <span>USER: </span>
-                {userName}
+            <p className="main-video-user Heading2">
+              <AccountCircle></AccountCircle>
+              {userName}
+                
             </p>
             
-            <p className='main-video-description'>
+            <p className='main-video-description '>
             <span>DESCRIPTION: </span>
                 {description}
             </p>
@@ -150,10 +143,10 @@ const getData = async  ()  => {
     <div className="container-fluid col-12 " style ={{backgroundColor: ""}}>
     
     
-    <div className="PageLayout" style ={{backgroundColor: ""}}>
+    <div className="container" style ={{backgroundColor: ""}}>
         
     <div id ="myCarousel2" className="carousel slide">  
-        <div className="column-md-4">
+        <div className="column-lg-3">
         <h1 className="Heading1">
                 RECOMMENDED
         </h1>
@@ -164,11 +157,11 @@ const getData = async  ()  => {
         <div className="carousel-inner">
             <div className="carousel-item active"> 
             { 
-            
+
             videoWheel.slice(0,4).map((video, index) => ( 
                 
-            <Link to={`../video/${encodeURIComponent(index)}
-              `} onClick={()=> handleClick(index)}>
+            <Link onClick={()=> handleClick(index)} to={`../video/${encodeURIComponent(index)}
+              `} >
                
              <Card key = {index} title={video.Title} source= {video.videoUrl} User={video.username}/> 
             
@@ -180,14 +173,14 @@ const getData = async  ()  => {
     
         <div className="carousel-item"> 
         
-        { videoWheel.slice(5,videoWheel.length).map((video, index) => (
+        { videoWheel.slice(4,videoWheel.length-1).map((video, index) => (
             
-            <Link to={`../video/${encodeURIComponent(index)}
-            `} onClick={()=> handleClick(index)}>
-             
+            <Link onClick={()=> handleClick(index)} to={`../video/${encodeURIComponent(index)}
+            `} >
+               { window.location.reload}
                
              <Card key = {index} title={video.Title} source= {video.videoUrl} User={video.username}/> 
-            
+           
             </Link>
     
 
@@ -226,12 +219,13 @@ const getData = async  ()  => {
     </div>
     
     
-    </div></div>
+    </div>
+    </div>
   </div>
   
 </div>
        
-      </div>
+      
       </div>
   );
 

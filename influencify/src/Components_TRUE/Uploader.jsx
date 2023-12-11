@@ -2,14 +2,14 @@ import { useState, React} from 'react';
 import { ref, getDownloadURL,uploadBytesResumable, updateMetadata  } from "firebase/storage";
 import { db, storage} from "../Config/firebase-config";
 import { doc, setDoc, collection} from "firebase/firestore";
-import { getAuth, onStateChanged} from "firebase/auth";
+import { useAuth} from "../contexts/AuthContext";
 import { label }  from '@mui/icons-material';
 
 function Uploader() {
 
-    const Auth = getAuth();
-    const user= Auth.currentUser;
-    const displayName="User-Name";
+    const { currentUser, logout } = useAuth();
+    const name =currentUser.displayName;
+   
 
     {/*
     if(user.displayName === null)
@@ -112,7 +112,8 @@ function Uploader() {
       <div className="Upload">
         <form className="form">
         <label>
-            USERNAME:{()=>setUsername(username.concat(displayName))}
+            USERNAME: {name}
+            {()=>setUsername(username.concat(name))}
           </label>
           <br />
           <label>

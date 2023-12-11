@@ -1,14 +1,19 @@
 .PageLayout
 {
    margin-bottom: 50px;
-   margin-top: 50px;
-   border-color: black;
+   margin-top: 10px;
    border: solid;
    height: auto;
    position: relative;
-   
 
 }
+
+.videowheel
+{
+    margin-top: 30px;
+    
+}
+
 .background
 {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

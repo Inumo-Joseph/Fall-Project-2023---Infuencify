@@ -4,11 +4,12 @@ import { useState, useEffect } from 'react';
 import './index.css';
 import Card from './Card';
 import {getStorage, getDownloadURL, ref, listAll} from 'firebase/storage';
-import { KeyboardArrowLeft,KeyboardArrowRight, KeyboardDoubleArrowRight, TimeToLeave} from '@mui/icons-material';
+import { ArrowCircleLeft, ArrowCircleRight,TimeToLeave} from '@mui/icons-material';
 import { doc, setDoc, collection, getDocs} from "firebase/firestore";
 import { db, storage} from "../Config/firebase-config";
 import { getAuth, onStateChanged} from "firebase/auth";
 import {Link } from 'react-router-dom';
+
 
 
 
@@ -55,10 +56,10 @@ function VideoWheel()
 
 return ( 
 
-<div className="container-fluid column-md-6 Header" style ={{backgroundColor: ""}}>
+<div className="container-fluid column-md-6 videowheel" style ={{backgroundColor: ""}}>
 
 
-<div className="PageLayout" style ={{backgroundColor: ""}}>
+<div className="" style ={{backgroundColor: ""}}>
     
 <div id ="myCarousel2" className="carousel slide">  
     <div className="column-md-4">
@@ -105,13 +106,13 @@ return (
 
         <button className="carousel-control-prev Button PageLayout" type="button" data-bs-target="#myCarousel2" data-bs-slide="prev">
     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span className="visually-hidden"><KeyboardArrowLeft></KeyboardArrowLeft></span>    
+    <span className="visually-hidden"><ArrowCircleLeft></ArrowCircleLeft></span>    
    </button>
        
 
         <button className="carousel-control-next Button" type="button" data-bs-target="#myCarousel2" data-bs-slide="next">
     <span className="carousel-control-next-icon" aria-hidden="true"></span>
-    <span className="visually-hidden"><KeyboardDoubleArrowRight> </KeyboardDoubleArrowRight></span>
+    <span className="visually-hidden"><ArrowCircleRight></ArrowCircleRight></span>
   </button>
         
     </div>
@@ -125,7 +126,7 @@ return (
 </div>
     
 
-<div className="PageLayout">
+<div className="">
 <div id ="myCarousel" className="carousel slide">  
     <div className="column-md-4">
     <h1 className="Heading1">
@@ -170,20 +171,17 @@ return (
 
         <button className="carousel-control-prev Button PageLayout" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span className="visually-hidden"><KeyboardArrowLeft></KeyboardArrowLeft></span>    
+    <span className="visually-hidden"><ArrowCircleLeft></ArrowCircleLeft></span>    
    </button>
        
 
         <button className="carousel-control-next Button" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
     <span className="carousel-control-next-icon" aria-hidden="true"></span>
-    <span className="visually-hidden"><KeyboardDoubleArrowRight> </KeyboardDoubleArrowRight></span>
+    <span className="visually-hidden"><ArrowCircleRight> </ArrowCircleRight></span>
   </button>
         
     </div>
-    <div className="carousel-indicators">
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        </div>
+    
         
         </div>
     </div>

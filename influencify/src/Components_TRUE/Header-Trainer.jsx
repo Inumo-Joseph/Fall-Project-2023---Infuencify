@@ -29,7 +29,7 @@ function HeaderTrainer() {
 
   return ( 
 
-<nav className="navbar navbar-expand-lg bg-dark sticky-top Header">
+<nav className="navbar navbar-expand-lg bg-dark sticky-top Headcomp">
   <div className="container-fluid">
 
 
@@ -52,7 +52,7 @@ function HeaderTrainer() {
       </div>
 
     
-      <div className="container collapse navbar-collapse " style={{marginLeft:""}} id="navbarNav">
+      <div className="container collapse navbar-collapse" style={{marginLeft:""}} id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link active" aria-current="page" href="../Home"><Home></Home> Home </a>
@@ -72,7 +72,7 @@ function HeaderTrainer() {
         </li>
 
         <li className="nav-item">
-          <a className="nav-link" href="">
+          <a className="nav-link" href="/login">
             <Logout onClick={handleLogout}></Logout> Logout
             </a >
         </li>
