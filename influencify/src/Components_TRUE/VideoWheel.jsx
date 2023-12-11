@@ -87,10 +87,10 @@ return (
 
     <div className="carousel-item"> 
     
-    { videoData.slice(4,videoData.length).map((video, index) => (
+    { videoData.slice(4,videoData.length-1).map((video, index) => (
         
        
-          <Link to={`../video/${encodeURIComponent(video.videoUrl)}`}>
+          <Link to={`../video/${encodeURIComponent(index)}`}>
             
             <Card key = {index} title={video.Title} source= {video.videoUrl} User={video.username}/> 
            
