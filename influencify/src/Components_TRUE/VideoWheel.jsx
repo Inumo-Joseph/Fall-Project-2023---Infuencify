@@ -88,7 +88,7 @@ return (
         <Link to={`../video/${(index)}`}>
 
             {/* The card componenet takes props so it the videos Title and src url can be used*/}
-         
+         {console.log(video.videoUrl)}
          <Card key = {index} title={video.Title} source= {video.videoUrl} User={video.username}/> 
          { console.log("INDEX IN CARD COMP",index)}
         </Link>
