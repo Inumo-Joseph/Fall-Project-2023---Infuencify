@@ -2,7 +2,7 @@ import {React, useReact, useState} from "react";
 import {useNavigate} from 'react-router-dom';
 import {Typography} from "@mui/material";
 import { getAuth, onStateChanged} from "firebase/auth";
-import {Menu, AccountCircle, Logout, Home, Forum } from "@mui/icons-material"
+import {Menu, AccountCircle, Logout, Home, Forum, LibraryAdd } from "@mui/icons-material"
 import { useAuth } from "../contexts/AuthContext";
 import {Link} from "react-router-dom";
 
@@ -17,11 +17,14 @@ function HeaderTrainer() {
     setError('')
     try{
       await logout()
-      navigate('/login')
+      console.log("LOGGING OUT");
+      navigate('/Home')
+    
     } catch (error){
       console.log("the error is: ", {error})
       setError('Failed to log out')
     }
+  
   }
 
   return ( 
@@ -70,7 +73,7 @@ function HeaderTrainer() {
 
         <li className="nav-item">
           <a className="nav-link" href="">
-            <Logout onClick={handleLogout} ></Logout> Logout
+            <Logout onClick={handleLogout}></Logout> Logout
             </a >
         </li>
         <li className="nav-item">

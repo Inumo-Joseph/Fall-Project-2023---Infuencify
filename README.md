@@ -35,8 +35,9 @@ Trainer User:
 As a Trainer I would be able to hold live video classes so that I can teach up and coming streamers how to create content effectively.  
 As a trainer I want to also be able to sell products so that users can support my streamer community. This would be a supporting feature.
 
-Sources used for this project:
+
+Sources used for this project: 
 Animesh Deb:
-https://www.youtube.com/watch?v=mEF9WRwYDfY&t=114s - To get an intro to Firebase
-https://www.youtube.com/watch?v=9kRgVxULbag - To get a general overview of Firebase and understand how querying works.
-https://www.youtube.com/watch?v=Vv_Oi7zPPTw / https://www.youtube.com/watch?v=PKwu15ldZ7k- To understand how firebase authentication functions are implemented and how they work.
+ https://www.youtube.com/watch?v=mEF9WRwYDfY&t=114s - To get an intro to Firebase
+ https://www.youtube.com/watch?v=9kRgVxULbag - To get a general overview of Firebase and understand how querying works. 
+ https://www.youtube.com/watch?v=Vv_Oi7zPPTw / https://www.youtube.com/watch?v=PKwu15ldZ7k- To understand how firebase authentication functions are implemented and how they work.

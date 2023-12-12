@@ -13,9 +13,7 @@ body {
 }
 
 .Header{
-  background: linear-gradient(to bottom, rgb(114, 31, 169), rgb(12, 89, 183));
-  color: black;
-  
+  background: linear-gradient(to bottom, rgb(114, 31, 169), rgb(12, 89, 183));  
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
