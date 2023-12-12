@@ -16,7 +16,8 @@ function Footer() {
       
       <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
       <li class="ms-3">
-        <a class="text-body-secondary" href="https://github.com/Inumo-Joseph/Fall-Project-2023---Infuencify"></a>  Github</li>
+        <a class="text-body-secondary" href="https://github.com/Inumo-Joseph/Fall-Project-2023---Infuencify">Github</a>  
+        </li>
       
 
        </ul>

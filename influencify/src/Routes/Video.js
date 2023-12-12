@@ -22,7 +22,7 @@ function Video() {
   const [loading, setLoading] = useState(true);
   const {videoId} = useParams();
   var videoData;
-  var vidIndex=decodeURIComponent(videoId);
+  var vidIndex=(videoId);
   console.log("Index Recieved", vidIndex);
   
 
@@ -31,7 +31,7 @@ function Video() {
   const handleClick = (index) =>
   {
    
-    navigate(`../video/${encodeURIComponent(index)}`);
+    navigate(`../video/${(index)}`);
 
     
   }

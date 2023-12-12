@@ -16,7 +16,7 @@ function Card(props)
                 {props.title}
                 <div >
                 </div>
-                <a><Bookmark></Bookmark></a>
+                
                
                 
             </h2>

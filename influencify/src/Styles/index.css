@@ -19,13 +19,21 @@ body {
 }
 .Headcomp
 {
-  background: linear-gradient(to bottom, rgb(114, 31, 169), rgb(114, 31, 169));  
+
+  background: linear-gradient(to bottom, rgb(114, 31, 169), rgb(114, 20, 169));  
  
 
 }
 
  .Video-font{
 font-size: "50px";
+}
+
+.videowheel
+{   
+    
+    padding-top: 30px;
+    
 }
 
 
