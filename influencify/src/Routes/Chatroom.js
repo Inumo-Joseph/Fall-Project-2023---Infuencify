@@ -4,6 +4,7 @@ import {Chat} from './Chat'
 import { addDoc, collection, onSnapshot, query, serverTimestamp, where, orderBy, getDocs } from "firebase/firestore";
 import { auth, db } from "../Config/firebase-config";
 import '../Styles/Chatroom.css';
+import Footer from "../Components_TRUE/Footer"
 import HeaderTrainer from "../Components_TRUE/Header-Trainer";
 
 function Chatroom(){
@@ -88,6 +89,7 @@ function Chatroom(){
                     ) : (<div></div>)}
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     )
 }

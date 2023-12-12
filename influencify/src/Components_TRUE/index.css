@@ -1,14 +1,19 @@
 .PageLayout
 {
    margin-bottom: 50px;
-   margin-top: 50px;
-   border-color: black;
+   margin-top: 10px;
    border: solid;
    height: auto;
    position: relative;
-   
 
 }
+
+.videowheel
+{
+    margin-top: 100px;
+    
+}
+
 .background
 {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -17,8 +22,8 @@
 }
 
 .Button{
-background-color: rgb(165, 93, 159);
-box-shadow: 23px;
+
+border: 10px;
 border: solid;
         
 }

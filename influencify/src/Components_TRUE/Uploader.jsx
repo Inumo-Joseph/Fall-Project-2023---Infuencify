@@ -2,54 +2,56 @@ import { useState, React} from 'react';
 import { ref, getDownloadURL,uploadBytesResumable, updateMetadata  } from "firebase/storage";
 import { db, storage} from "../Config/firebase-config";
 import { doc, setDoc, collection} from "firebase/firestore";
-import { getAuth, onStateChanged} from "firebase/auth";
+import { useAuth} from "../contexts/AuthContext";
 import { label }  from '@mui/icons-material';
 
 function Uploader() {
+//Uploads a doc and a video onto fire base store and videos into storage
 
-    const Auth = getAuth();
-    const user= Auth.currentUser;
-    const displayName="User-Name";
-
-    {/*
-    if(user.displayName === null)
-    {
-       displayName="User-Name";
-    }
-    else{
-       displayName=user.displayName;
-    }
-    */}
-
+    const { currentUser, logout } = useAuth();// gets the current user information
+    const name =currentUser.displayName; //set the variable to the current user informtino name
+     // All of the informatino about the video that will be uploaded is saved as variables
     const [file, setFile] = useState(null);
     const [title, setTitle] = useState('');
     const [username, setUsername] = useState('');
     const [genre, setGenre] = useState('');
     const [url, setUrl] = useState('');
     const [description, setDescription] = useState('');
+
+    {/*
+    
+    */}
+
+    
   
 
     const handleClick = async () => {
+       {/*
+      async hanlde click funtion that uploads a filled out doc to firestore and a video to storage
+    */}
       try {
-        if (file === null) {
+        if (file === null) { // if the file is null
          { console.log('Insert file')
           return; // Return early if no file is selected
         }
         }
   
-        const fileRef = ref(storage, `videos/${file.name}`);
-        const uploadTask = uploadBytesResumable(fileRef, file);
+        const fileRef = ref(storage, `videos/${file.name}`); //reference to storage bucket
+        const uploadTask = uploadBytesResumable(fileRef, file); // uploads the file to the storage bucket using uploadBytesResumable function
+        
+        //new Metadat object is created. This can be added to rh evideo and later manipulated 
+       
         const newMetadata ={
             name: fileRef.name,
             size: fileRef.size,
             timeCreated: fileRef.timeCreated,
             customMetadata:{
-                "Video-tags": genre,
+                "Video-tags": genre, // the actual new metadata field is the video genre. Will be used in conjuction with user tags later in code
                 
             }
         };
 
-        uploadTask.on('state_changed', (snapshot) => {
+        uploadTask.on('state_changed', (snapshot) => {// if file is uploaded this shows the progress in console.log
           let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log(progress);
         }, (error) => {
@@ -58,9 +60,10 @@ function Uploader() {
           console.log('success!!');
   
           try {
+           
+            // the url of the video that was added to the bucket is placed in a variable 
             const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-  
-            const videosCollection = collection(db, 'videos');
+            const videosCollection = collection(db, 'videos');// reference tot he video bucket
             const newDocRef = doc(videosCollection);
   
             // Set document data
@@ -70,7 +73,7 @@ function Uploader() {
               genre: genre,
               videoUrl: downloadURL, // Use the downloadURL obtained earlier
               description: description
-            }, {merge: true} );
+            }, {merge: true} );// if the doc already exists you can merge it 
             
             
 
@@ -89,7 +92,7 @@ function Uploader() {
             console.error('ERROR WITH DOC ', error.message);
           }
 
-          updateMetadata(fileRef, newMetadata)
+          updateMetadata(fileRef, newMetadata)// update the metadata last
         .then((metadata) => {
             console.log('Metadata updated successfully', metadata);
          }).catch((error) => {
@@ -109,25 +112,33 @@ function Uploader() {
     };
   
     return (
-      <div className="Upload">
+      <div className="Upload background">
         <form className="form">
         <label>
-            USERNAME:{()=>setUsername(username.concat(displayName))}
+            USERNAME: {name}
+             {/* the username in the doc is set to the Users name*/}
+            {()=>setUsername(username.concat(name))} 
           </label>
+
           <br />
           <label>
             VIDEO TITLE:
+            {/* A text bar that sets the video title field to whatever you type*/}
             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
           </label>
           <br />
           <label>
             VIDEO DESCRIPTION:
+                        {/* A text bar that sets the video description to whatever you type*/}
+
             <input type="text" value={title} onChange={(e) => setDescription(e.target.value)} />
           </label>
           <br />
           
           <label>
             TAGS:
+          {/* A series of buttons that sets all the tags. Upon clicking them they are added the genre field*/}
+
             <br/>
              <button onClick= {() =>setGenre(genre.concat(" Educational"))} >
               Educational
@@ -157,9 +168,14 @@ function Uploader() {
           
           </label>
           <br />
+         
+         {/* allows the user to set file from thier pc to uplaod*/}
+
           <input type="file" onChange={(e) => setFile(e.target.files[0])} />
           <br />
 
+
+        {/* THe handleclick function is called when the button is clicked*/}
           <button type="button" onClick={handleClick}>
             UPLOAD
           </button>

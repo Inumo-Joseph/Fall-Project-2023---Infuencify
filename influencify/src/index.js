@@ -9,10 +9,14 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 export const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <div className="Header">
+    
+  
   <React.StrictMode>
     <App/>
   {/*<Chatroom/> */}
   </React.StrictMode>
+  </div>
 
 );
 

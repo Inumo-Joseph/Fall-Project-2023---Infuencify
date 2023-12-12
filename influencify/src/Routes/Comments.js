@@ -93,13 +93,15 @@ const Comments = ( {video_title} ) =>{
                             <p>{numLikes[comment.id]}</p>
                             <button onClick={() => addLike(comment.id)}> Like </button>
                         </div> */}
-                        {console.log(comment)}
+                        
                     </div>
                   
 
                 ))}
             </div>
+           
         </div>
+        
     )
 };
 
