@@ -23,7 +23,9 @@ function ForgotPassword() {
         setMessage('')
     setError('')// set error back to empty string so that we dont have error
     setLoading(true)
-    await resetpassword(emailRef.current.value)//resetting password
+    await resetpassword(emailRef.current.value)//Using resetpassword function with appropriate parameters passed in. It should
+    // be noted that since we are using useAuth for this, firebase handles the functionality of the user resetting the password.
+    // It handles the logic of the user receiving an email with their password once they type their email and submit.
     setMessage('Check your email for further instructions');
     //using await, we wait for signup to finish
   } catch (error) {

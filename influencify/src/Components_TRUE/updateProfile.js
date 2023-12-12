@@ -11,7 +11,7 @@ function UpdateProfile() {
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const displayNameRef=useRef();
-  //using useAuth to get information about credentials, in this case current user
+  //using useAuth to get information about credentials, in this case current user.
   const {currentUser, updatePassword, updateEmail, updateDisplayName}=useAuth();//getting functions from another file, which require the auth from firebase to work 
   const [error, setError]=useState('')
   const navigate=useNavigate()
@@ -29,26 +29,27 @@ function UpdateProfile() {
     }
 
     const promises=[]
-    //if email is different fom current email, if we changed then we add that promise
+    //if email thats stored in the firebase database is different fom current email thats being submited, we update the user email and push that to the promises array.
     if(emailRef.current.value!==currentUser.email)
     {
+      
         promises.push(updateEmail(emailRef.current.value))
     }
-
+    //same process as above, if the display name thats being submitted right now is different from whatever is in the database, we update the display name and push it to the promises array.
     if(displayNameRef.current.value!==currentUser.displayName)
     {
       promises.push(updateDisplayName(displayNameRef.current.value))
     }
-    //password was entered
+    // if password was entered we update the password and push it to the promises array.
 
     if(passwordRef.current.value)
     {
         promises.push(updatePassword(passwordRef.current.value))
     }
-//when all prmises finish then will be navigated back to home page
+//when all promises finish then will be navigated back to home page
     Promise.all(promises).then(()=>{
         navigate('/')
-    }).catch((error)=>{
+    }).catch((error)=>{// if there is some error with the changes, then error will be displayed
       console.log("The error is: ", error)
         setError('Failed to update account')
     }).finally(()=>{
@@ -63,6 +64,7 @@ function UpdateProfile() {
         <Card.Body>
           <h2 className="text-center mb-4">Update Profile</h2>
           {error && <Alert variant="danger">{error}</Alert>}
+          {/* There are fields that users can change to update their profile as is shown below. */}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
