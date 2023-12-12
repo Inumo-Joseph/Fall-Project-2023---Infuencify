@@ -52,6 +52,7 @@ function VideoWheel()
     //useEffect used after page renders
     useEffect(() => {
         getData();
+       
       }, []); // set into empty array
 
 
@@ -67,6 +68,7 @@ return (
     */
     }
 <div id ="myCarousel2" className="carousel slide">  
+
     <div className="">
     <h1 className="Heading1">
             FEATURED VIDEOS
@@ -77,30 +79,38 @@ return (
         <div className="carousel-item active"> 
         { 
         
-       
          //The videoData array is sliced so the first four videos are used always
          //then map and iterated through 
         videoData.slice(0,4).map((video, index) => ( 
+          
             //anytime the Card compenent is clicked it changes the the URl and navigates to the Video page
-            //the index the video was on is passed in the URL so the video page can find and load it
+            //the index the video was on is passed in the URL so the video page can find and load it 
         <Link to={`../video/${(index)}`}>
+
             {/* The card componenet takes props so it the videos Title and src url can be used*/}
+         
          <Card key = {index} title={video.Title} source= {video.videoUrl} User={video.username}/> 
-    
+         { console.log("INDEX IN CARD COMP",index)}
         </Link>
 
            ))}
          </div>
+
 
     <div className="carousel-item"> 
     
     { 
     
     //Within the next page of the carousel the next set of videos are selected
-    videoData.slice(3,(videoData.length)).map((video, index) => ( 
-            //the same process happens here
-        <Link to={`../video/${(index)}`}>
-         <Card key = {index} title={video.Title} source= {video.videoUrl} User={video.username}/> 
+    videoData.slice(4,(videoData.length)).map((video, index) => ( 
+            //the same process happens here but we have to add plus 3 to offest. 
+            //Since slice makes a subarray with a new inex 0-3
+        <Link to={`../video/${(index+4)}`}>
+         <Card key = {index+4} title={video.Title} source= {video.videoUrl} User={video.username}/> 
+         {console.log("VIDEO LENGTH",videoData.length)}
+         { console.log("INDEX IN CARD COMP2",index+4)}
+
+
         </Link>
   
         ))}
@@ -113,7 +123,7 @@ return (
 
             {/*These Bootstrap components are for controlling the where the carousel turns to*/}
 
-        <button className="carousel-control-prev Button PageLayout" type="button" data-bs-target="#myCarousel2" data-bs-slide="prev">
+        <button className="carousel-control-prev Button" type="button" data-bs-target="#myCarousel2" data-bs-slide="prev">
     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
     <span className="visually-hidden"><ArrowCircleLeft></ArrowCircleLeft></span>    
    </button>
@@ -160,11 +170,11 @@ return (
 
     <div className="carousel-item"> 
     
-    { videoData.slice(5, (videoData.length)).map((video, index) => (
+    { videoData.slice(4,videoData.length).map((video, index) => (
         
         userTagsArray.some(tag => video.genre.includes(tag)) ? (
-            <Link to={`../video/${(index)}`}>
-            <Card key = {index} title={video.Title} source= {video.videoUrl} User={video.username}/> 
+            <Link to={`../video/${(index+4)}`}>
+            <Card key = {index+4} title={video.Title} source= {video.videoUrl} User={video.username}/> 
            
            </Link>       ) : null
             
@@ -177,7 +187,7 @@ return (
     </div>
 
 
-        <button className="carousel-control-prev Button PageLayout" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <button className="carousel-control-prev Button " type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
     <span className="visually-hidden"><ArrowCircleLeft></ArrowCircleLeft></span>    
    </button>
