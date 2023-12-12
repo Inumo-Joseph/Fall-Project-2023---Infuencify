@@ -22,7 +22,8 @@ function LoginOfficial() {
 
     setError('')// set error back to empty string so that we dont have error
     setLoading(true)
-    await login(emailRef.current.value, passwordRef.current.value)//if signup does not work then error will be outputted
+    await login(emailRef.current.value, passwordRef.current.value)// We are calling the login function from AuthContexts with appropriate parameters and
+    //if login does not work then error will be outputted
      navigate('/')
     //using await, we wait for signup to finish
   } catch (error) {
@@ -37,6 +38,7 @@ function LoginOfficial() {
         <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>
           {error && <Alert variant="danger">{error}</Alert>}
+          {/* Similar fields as in the signup page are displayed, requiring users to enter their credentials to login. */}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
