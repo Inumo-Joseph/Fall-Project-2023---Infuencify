@@ -1,6 +1,6 @@
 import { useState, React} from 'react';
 import { ref, getDownloadURL,uploadBytesResumable, updateMetadata  } from "firebase/storage";
-import { db, storage} from "../Config/firebase-config";
+import { auth, db, storage} from "../Config/firebase-config";
 import { doc, setDoc, collection} from "firebase/firestore";
 import { useAuth} from "../contexts/AuthContext";
 import { label }  from '@mui/icons-material';
@@ -13,7 +13,7 @@ function Uploader() {
      // All of the informatino about the video that will be uploaded is saved as variables
     const [file, setFile] = useState(null);
     const [title, setTitle] = useState('');
-    const [username, setUsername] = useState('');
+    const [username, setUsername] = useState(auth.currentUser.displayName);
     const [genre, setGenre] = useState('');
     const [url, setUrl] = useState('');
     const [description, setDescription] = useState('');
@@ -80,7 +80,7 @@ function Uploader() {
   
             // Reset state variables to clear the fields
             setTitle('');
-            setUsername('');
+            // setUsername('');
             setGenre('');
             setFile(null);
             setUrl('');
@@ -117,7 +117,7 @@ function Uploader() {
         <label>
             USERNAME: {name}
              {/* the username in the doc is set to the Users name*/}
-            {()=>setUsername(username.concat(name))} 
+            {/* {()=>setUsername(username.concat(name))}  */}
           </label>
 
           <br />
@@ -131,7 +131,7 @@ function Uploader() {
             VIDEO DESCRIPTION:
                         {/* A text bar that sets the video description to whatever you type*/}
 
-            <input type="text" value={title} onChange={(e) => setDescription(e.target.value)} />
+            <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
           </label>
           <br />
           
@@ -139,6 +139,7 @@ function Uploader() {
             TAGS:
           {/* A series of buttons that sets all the tags. Upon clicking them they are added the genre field*/}
 
+            { /* To be removed  */}
             <br/>
              <button onClick= {() =>setGenre(genre.concat(" Educational"))} >
               Educational
