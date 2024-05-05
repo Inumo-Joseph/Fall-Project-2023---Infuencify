@@ -1,0 +1,32 @@
+.Headcomp {
+    background-color: #4a4e52; /* New background color for the navbar */
+    padding: 10px 20px; /* Add padding to the header */
+}
+
+.Headcomp .navbar-brand {
+    color: #fff; /* White text color */
+    font-size: 24px; /* Increase font size */
+}
+
+.Headcomp .form-control {
+    background-color: #ffffff; /* Change background color of search input to white */
+    color: #000000; /* Black text color for search input */
+    border-color: #4e555b; /* Border color for search input */
+}
+
+.Headcomp .navbar-nav .nav-link {
+    color: #0d0c0c; /* White text color for navigation links */
+    transition: color 0.3s; /* Add transition effect for color change */
+}
+
+.Headcomp .navbar-nav .nav-link:hover {
+    color: #ad0a0a; /* Lighter text color on hover */
+}
+
+.Headcomp .navbar-toggler {
+    border-color: #fff; /* White border color for toggler icon */
+}
+
+.Headcomp .navbar-toggler-icon {
+    color: #fff; /* White color for toggler icon */
+}
