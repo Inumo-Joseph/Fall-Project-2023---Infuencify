@@ -61,7 +61,7 @@ function App() {
           ></Route>
            <Route path="/register" element={<Signup />}></Route>
            <Route path="/login" element={<LoginOfficial />}></Route>
-           <Route path="/dataanalytics" element={<DataAnalytics />}></Route>
+           {/* <Route path="/dataanalytics" element={<DataAnalytics />}></Route> */}
            <Route path="/forgot-password" element={<ForgotPassword />}></Route>
            <Route
             exact
