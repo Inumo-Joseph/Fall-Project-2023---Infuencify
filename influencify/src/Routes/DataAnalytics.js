@@ -63,6 +63,7 @@ function DataAnalytics() {
 
     return (
         <div>
+            <h1>Check Data and Analytics For Your YouTube Channel Here</h1>
             Channel ID: <input type="text" id="channelID" /> <br />
             <button type="button" onClick={channel}>Add Statistics</button>
             <p />
@@ -72,7 +73,7 @@ function DataAnalytics() {
                 {channelStats.map((stat) => (
                     <div key={stat.id}>
                         <h2>Timestamp: {stat.timestamp?.toDate().toString()}</h2>
-                        <h3>Channel Name: {stat.name}</h3>
+                        {/* <h3>Channel Name: {stat.name}</h3> */}
                         <h3>Number of Subscribers: {stat.subscribers}</h3>
                         <h3>Number of Videos: {stat.videos}</h3>
                         <h3>Number of Views: {stat.views}</h3>
