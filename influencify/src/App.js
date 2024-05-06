@@ -18,6 +18,7 @@ import UpdateProfile from "./Components_TRUE/updateProfile";
 import { AuthProvider } from "./contexts/AuthContext";
 import Signup from "./Components_TRUE/Signup";
 import User from "./Routes/User";
+import DataAnalytics from "./Routes/DataAnalytics";
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
           ></Route>
            <Route path="/register" element={<Signup />}></Route>
            <Route path="/login" element={<LoginOfficial />}></Route>
+           <Route path="/dataanalytics" element={<DataAnalytics />}></Route>
            <Route path="/forgot-password" element={<ForgotPassword />}></Route>
            <Route
             exact

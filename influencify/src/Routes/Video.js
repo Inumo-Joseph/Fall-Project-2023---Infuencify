@@ -20,11 +20,22 @@ function Video() {
   const [videoTitle, setVideoTitle] = useState('');
   const [description, setDescription] = useState('');
   const [videoWheel, setVideoWheel] =useState([]);
+  const [commentname, setCommentName] = useState('');
   const {videoId} = useParams();//This takes the index from the Url and stores it
   var videoData; // a mutable videoData variable that is an object where all of the field will be stored. Title User Url etc
   var vidIndex=(videoId); // the index from the URL
   var videoArray =[];
 
+  const checkComments = async(comments) =>{
+    setCommentName('');
+    setTimeout(()=>{
+      setCommentName(comments);
+    }, 100);
+  }
+
+  const hideComments = async() =>{
+    setCommentName('');
+  }
 
  //Function that takes us to another page
   const handleClick = (index) =>
@@ -124,8 +135,11 @@ Container that holds the video
             </p>
   
             <div className="comment-section">
-               {/* The comments component takes one prop for the video title*/}
-              <Comments video_title={videoTitle}/>
+              <button onClick={()=> checkComments(videoTitle)}>See Comments</button>
+              <button onClick={()=> hideComments()}> Hide Comments </button>
+            {commentname ? (
+                        <Comments video_title={commentname}/>
+                    ) : (<div></div>)}
           </div>
   
           </div>
