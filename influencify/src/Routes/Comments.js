@@ -23,6 +23,8 @@ const Comments = ( {video_title} ) =>{
         return () => viewComments();
     }, []);
 
+    console.log(video_title);
+
     const createComment = async(e) =>{
         e.preventDefault();
 
