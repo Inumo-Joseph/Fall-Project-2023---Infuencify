@@ -1,15 +1,15 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { auth, firestore } from "../Config/firebase-config";
+import { auth, firestore } from "../Config/firebase-config.js";
 import { onAuthStateChanged, updateCurrentUser } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import axios from "axios";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Card, Button, Alert } from "react-bootstrap";
-import { useAuth } from "../contexts/AuthContext";
-import UpdateProfile from "./updateProfile";
-import HeaderTrainer from "./Header-Trainer";
-import Uploader from './Uploader'
+import { useAuth } from "../contexts/AuthContext.js";
+import UpdateProfile from "./updateProfile.js";
+import HeaderTrainer from "./Header-Trainer.jsx";
+import Uploader from './Uploader.jsx'
 
 //Taking changeColor as a parameter here. 'changeColor' is coming from the app.js file. Remember that 'changeColor' is a function that is equivalent to 'changeBackgroundColor' function.
 function UserSettings() {

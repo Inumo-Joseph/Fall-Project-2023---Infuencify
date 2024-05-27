@@ -4,8 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Card, Form, Button, Alert } from "react-bootstrap";
 import React, { useRef } from "react";
-import {useAuth} from '../contexts/AuthContext'
-import resetpassword from '../contexts/AuthContext'
+import {useAuth} from '../contexts/AuthContext.js'
+import resetpassword from '../contexts/AuthContext.js'
 function ForgotPassword() {
   const emailRef = useRef();
   const passwordRef = useRef();

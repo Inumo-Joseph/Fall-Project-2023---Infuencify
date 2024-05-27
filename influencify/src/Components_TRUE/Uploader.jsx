@@ -1,6 +1,6 @@
 // import { useState, React} from 'react';
 // import { ref, getDownloadURL,uploadBytesResumable, updateMetadata  } from "firebase/storage";
-// import { auth, db, storage} from "../Config/firebase-config";
+// import { auth, db, storage} from "../Config/firebase-config.js";
 // import { doc, setDoc, collection} from "firebase/firestore";
 // import { useAuth} from "../contexts/AuthContext";
 // import { label }  from '@mui/icons-material';
@@ -191,11 +191,11 @@
 
 import React, { useState } from 'react';
 import { ref, getDownloadURL, uploadBytesResumable, updateMetadata } from "firebase/storage";
-import { auth, db, storage } from "../Config/firebase-config";
+import { auth, db, storage } from "../Config/firebase-config.js";
 import { doc, setDoc, collection } from "firebase/firestore";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext.js";
 import '../Styles/Uploader.css'
-
+import AiChat from './AiChat.jsx';
 function Uploader() {
     const { currentUser } = useAuth();
     const name = currentUser.displayName;
@@ -301,6 +301,7 @@ function Uploader() {
                 <br />
                 <button type="button" onClick={handleClick}>UPLOAD</button>
             </form>
+            <AiChat/>
         </div>
     );
 }

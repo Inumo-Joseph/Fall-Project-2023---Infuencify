@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player';
-import HeaderTrainer from '../Components_TRUE/Header-Trainer'
+import HeaderTrainer from '../Components_TRUE/Header-Trainer.jsx'
 import {useParams, useNavigate} from "react-router-dom";
 import { doc, collection, getDoc, getDocs, where, query, limit} from "firebase/firestore";
-import { db, storage} from "../Config/firebase-config";
-import Card from '../Components_TRUE/Card';
+import { db, storage} from "../Config/firebase-config.js";
+import Card from '../Components_TRUE/Card.jsx';
 import {Link } from 'react-router-dom';
 import { KeyboardArrowLeft,ArrowCircleLeft, ArrowCircleRight, KeyboardDoubleArrowRight, AccountCircle} from '@mui/icons-material';
-import Comments from './Comments';
-import Footer from "../Components_TRUE/Footer"
+import Comments from './Comments.js';
+import Footer from "../Components_TRUE/Footer.jsx"
 
 
 function Video() {

@@ -4,20 +4,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {useState,  useEffect} from"react";
 //import Signup from "./Signup";
 import { BrowserRouter as Router, Routes, Route, Switch, Navigate, BrowserRouter} from "react-router-dom";
-import LoginOfficial from './Components_TRUE/Login'
-import Home from './Routes/Home'
-import Video from './Routes/Video'
-import UserSettings from "./Components_TRUE/idk";
-import Main from "./Components_TRUE/Main";
+import LoginOfficial from './Components_TRUE/Login.jsx'
+import Home from './Routes/Home.js'
+import Video from './Routes/Video.js'
+import UserSettings from "./Components_TRUE/idk.jsx";
+import Main from "./Components_TRUE/Main.jsx";
 import './Styles/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import Chatroom from "./Routes/Chatroom";
-import PrivateRoute from "./Components_TRUE/PrivateRoute";
-import ForgotPassword from "./Components_TRUE/ForgotPassword";
-import UpdateProfile from "./Components_TRUE/updateProfile";
-import { AuthProvider } from "./contexts/AuthContext";
-import Signup from "./Components_TRUE/Signup";
-import User from "./Routes/User";
+import Chatroom from "./Routes/Chatroom.js";
+import PrivateRoute from "./Components_TRUE/PrivateRoute.js";
+import ForgotPassword from "./Components_TRUE/ForgotPassword.js";
+import UpdateProfile from "./Components_TRUE/updateProfile.js";
+import { AuthProvider } from "./contexts/AuthContext.js";
+import Signup from "./Components_TRUE/Signup.jsx";
+import User from "./Routes/User.js";
+// import AiTalk from "./Components_TRUE/AiTalk.jsx";
 
 
 function App() {
@@ -44,11 +45,7 @@ function App() {
           <AuthProvider>
           <BrowserRouter>
       <Routes>
-        /* path basically makes it so that when you do the url and at end
-        // when you have /register, it will lead to register page, which is
-        //denoted by the Signup file. From now on, when you do '/register' 
-        relating to axios or useNavigate, it will refer to the Signup page */
-        
+       
         {/* 
          <Route path="/register" element={<Signup />}>
            
@@ -58,6 +55,7 @@ function App() {
             path="/update-profile"
             element={<PrivateRoute><UpdateProfile /></PrivateRoute>}
           ></Route>
+          {/* <Route path='/aichat' element={<AiTalk/>}></Route> */}
            <Route path="/register" element={<Signup />}></Route>
            <Route path="/login" element={<LoginOfficial />}></Route>
            <Route path="/forgot-password" element={<ForgotPassword />}></Route>
@@ -69,17 +67,12 @@ function App() {
             }>
           </Route>
 
-       
-        /* for the home page, we set the backgroundColor of the page to whatever color is stored in 'backgroundColor'  */
-        
+      
         
         <Route path="/Home"  element={<PrivateRoute><Home/></PrivateRoute>}> 
        
         </Route>
        
-        /* Since the user page is going to be responsible for all settings, including changing the background color of the pages, we use a different format
-        as comapred to the home page above. We start by setting a variable called changeColor equal to the change BackgroundColor function. This basically means
-        that changeColor and changeBackgroundColor is identical, but 'changeColor' is a property that's going to be passed into the User.jsx. */
         
         <Route path="/user" Component={User}> 
         

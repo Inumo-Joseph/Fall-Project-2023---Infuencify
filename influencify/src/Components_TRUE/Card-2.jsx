@@ -5,7 +5,7 @@ import Card from './Card';
 import {getStorage, getDownloadURL, ref, listAll} from 'firebase/storage';
 import { KeyboardArrowLeft,KeyboardArrowRight, KeyboardDoubleArrowRight, TimeToLeave} from '@mui/icons-material';
 import { doc, setDoc, collection, getDocs} from "firebase/firestore";
-import { db, storage} from "../Config/firebase-config";
+import { db, storage} from "../Config/firebase-config.js";
 import { getAuth, onStateChanged} from "firebase/auth";
 import {Link } from 'react-router-dom';
 import { ForkLeft, Bookmark } from "@mui/icons-material";
