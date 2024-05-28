@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { addDoc, collection, onSnapshot, query, serverTimestamp, where, orderBy, getDocs, doc, deleteDoc} from "firebase/firestore";
-import { auth, db } from "../Config/firebase-config";
+import { auth, db } from "../Config/firebase-config.js";
 import '../Styles/Chat.css'
 
 export const Chat = ( {room} ) =>{

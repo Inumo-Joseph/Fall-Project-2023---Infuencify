@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './Styles/index.css';
-import App from './App';
-import Chatroom from './Routes/Chatroom';
-import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+import App from './App.js';
+import Chatroom from './Routes/Chatroom.js';
+import reportWebVitals from './reportWebVitals.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
 export const root = ReactDOM.createRoot(document.getElementById('root'));

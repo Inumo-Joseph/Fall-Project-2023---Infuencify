@@ -1,5 +1,5 @@
 import React from 'react'
-import {useAuth} from "../contexts/AuthContext"
+import {useAuth} from "../contexts/AuthContext.js"
 import {Navigate} from "react-router-dom"
 //We dont want the users to be able to come back to any of the web pages after they log out.
 // Basically the below function checks if a user is logged in using useAuth. If the user

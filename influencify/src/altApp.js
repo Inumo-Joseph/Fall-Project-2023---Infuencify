@@ -1,57 +1,32 @@
 import "./App.css";
 import React from "react";
-import { useState, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Signup from "./Components_TRUE/Signup";
-import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
-import LoginOfficial from "./Components_TRUE/Login";
-import Home from "./Home";
-import UserSettings from "./Components_TRUE/idk";
-import Auth from "./Auth";
-import { Container } from "react-bootstrap";
-import { AuthProvider } from "./contexts/AuthContext";
-import PrivateRoute from "./Components_TRUE/PrivateRoute";
-import ForgotPassword from "./Components_TRUE/ForgotPassword";
-import UpdateProfile from "./Components_TRUE/updateProfile";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Signup from "./Components_TRUE/Signup.jsx";
+import LoginOfficial from "./Components_TRUE/Login.jsx";
+import Home from "./Home.js";
+import UserSettings from "./Components_TRUE/idk.jsx";
+import Auth from "./Auth.js";
+import { AuthProvider } from "./contexts/AuthContext.js";
+import PrivateRoute from "./Components_TRUE/PrivateRoute.js";
+import ForgotPassword from "./Components_TRUE/ForgotPassword.js";
+import UpdateProfile from "./Components_TRUE/updateProfile.js";
+// import AiTalk from "./Components_TRUE/AiTalk.jsx"; // Import AiTalk component
+import AiChat from "./Components_TRUE/AiChat.jsx";
 function AltApp() {
-  
-  
   return (
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          {/* path basically makes it so that when you do the url and at end
-        // when you have /register, it will lead to register page, which is
-        //denoted by the Signup file. From now on, when you do '/register' 
-        relating to axios or useNavigate, it will refer to the Signup page */}
-
-
-        {/**/ }
-          <Route
-            path="/update-profile"
-            element={<PrivateRoute><UpdateProfile /></PrivateRoute>}
-          ></Route>
-          <Route path="/register" element={<Signup />}></Route>
-
-          <Route path="/login" element={<LoginOfficial />}></Route>
-          {/* for the home page, we set the backgroundColor of the page to whatever color is stored in 'backgroundColor' */}
-          <Route path="/forgot-password" element={<ForgotPassword />}></Route>
-          <Route
-            path="/home"
-            element={<Home/>}
-          ></Route>
-          {/* Since the user page is going to be responsible for all settings, including changing the background color of the pages, we use a different format
-        as comapred to the home page above. We start by setting a variable called changeColor equal to the change BackgroundColor function. This basically means
-        that changeColor and changeBackgroundColor is identical, but 'changeColor' is a property that's going to be passed into the User.jsx. */}
-          <Route
-            exact
-            path="/"
-            element={
-              <PrivateRoute><UserSettings /></PrivateRoute>
-            }>
-          </Route>
+          {/* Other routes */}
+          <Route path="/update-profile" element={<PrivateRoute><UpdateProfile /></PrivateRoute>} />
+          <Route path="/register" element={<Signup />} />
+          <Route path="/login" element={<LoginOfficial />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/home" element={<Home />} />
+          <Route exact path="/" element={<PrivateRoute><UserSettings /></PrivateRoute>} />
+          <Route path="/aichat" element={<PrivateRoute><AiTalk /></PrivateRoute>} />
         </Routes>
+       
       </BrowserRouter>
     </AuthProvider>
   );

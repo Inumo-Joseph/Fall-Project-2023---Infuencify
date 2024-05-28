@@ -5,7 +5,7 @@ import './index.css';
 import Card from './Card';
 import { ArrowCircleLeft, ArrowCircleRight} from '@mui/icons-material';
 import { collection, getDocs} from "firebase/firestore";
-import { db } from "../Config/firebase-config";
+import { db } from "../Config/firebase-config.js";
 import { getAuth} from "firebase/auth";
 import {Link } from 'react-router-dom';
 

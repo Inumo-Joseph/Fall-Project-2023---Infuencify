@@ -1,8 +1,9 @@
 import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Menu, AccountCircle, Logout, Home, Forum } from '@mui/icons-material';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext.js';
 import '../Styles/HeaderTrainer.css';
+import {Link} from 'react-router-dom'
 function HeaderTrainer() {
   const { currentUser, logout } = useAuth(); //uses the current login information of user
   const name = currentUser.displayName; //displays there name
@@ -88,6 +89,7 @@ function HeaderTrainer() {
                 <Forum></Forum> Chat-Rooms
               </a>
             </li>
+            
 
             <li className="nav-item">
               <a className="nav-link" href="/login">

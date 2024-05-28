@@ -1,11 +1,11 @@
 import React, {useRef, useState, useEffect} from "react";
-import { Auth } from "../Auth";
-import {Chat} from './Chat'
+import { Auth } from "../Auth.js";
+import {Chat} from './Chat.js'
 import { addDoc, collection, onSnapshot, query, serverTimestamp, where, orderBy, getDocs } from "firebase/firestore";
-import { auth, db } from "../Config/firebase-config";
+import { auth, db } from "../Config/firebase-config.js";
 import '../Styles/Chatroom.css';
-import Footer from "../Components_TRUE/Footer"
-import HeaderTrainer from "../Components_TRUE/Header-Trainer";
+import Footer from "../Components_TRUE/Footer.jsx"
+import HeaderTrainer from "../Components_TRUE/Header-Trainer.jsx";
 
 function Chatroom(){
     const roomRef = collection(db, "rooms");
