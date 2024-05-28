@@ -11,6 +11,7 @@ import UserSettings from "./Components_TRUE/idk.jsx";
 import Main from "./Components_TRUE/Main.jsx";
 import './Styles/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
+
 import Chatroom from "./Routes/Chatroom.js";
 import PrivateRoute from "./Components_TRUE/PrivateRoute.js";
 import ForgotPassword from "./Components_TRUE/ForgotPassword.js";
@@ -18,7 +19,7 @@ import UpdateProfile from "./Components_TRUE/updateProfile.js";
 import { AuthProvider } from "./contexts/AuthContext.js";
 import Signup from "./Components_TRUE/Signup.jsx";
 import User from "./Routes/User.js";
-// import AiTalk from "./Components_TRUE/AiTalk.jsx";
+import DataAnalytics from "./Routes/DataAnalytics";
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
           {/* <Route path='/aichat' element={<AiTalk/>}></Route> */}
            <Route path="/register" element={<Signup />}></Route>
            <Route path="/login" element={<LoginOfficial />}></Route>
+           {/* <Route path="/dataanalytics" element={<DataAnalytics />}></Route> */}
            <Route path="/forgot-password" element={<ForgotPassword />}></Route>
            <Route
             exact

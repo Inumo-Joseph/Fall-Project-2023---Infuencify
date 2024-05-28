@@ -6,10 +6,12 @@ import { doc, getDoc } from "firebase/firestore";
 import axios from "axios";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Card, Button, Alert } from "react-bootstrap";
+
 import { useAuth } from "../contexts/AuthContext.js";
 import UpdateProfile from "./updateProfile.js";
 import HeaderTrainer from "./Header-Trainer.jsx";
 import Uploader from './Uploader.jsx'
+import DataAnalytics from "../Routes/DataAnalytics";
 
 //Taking changeColor as a parameter here. 'changeColor' is coming from the app.js file. Remember that 'changeColor' is a function that is equivalent to 'changeBackgroundColor' function.
 function UserSettings() {
@@ -33,6 +35,7 @@ const navigate=useNavigate()// will be used to automatially switch pages once us
     <div>
       <HeaderTrainer></HeaderTrainer>
       <Uploader></Uploader>
+      <DataAnalytics></DataAnalytics>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Profile</h2>
