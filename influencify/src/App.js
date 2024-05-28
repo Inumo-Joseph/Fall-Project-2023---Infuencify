@@ -19,7 +19,7 @@ import UpdateProfile from "./Components_TRUE/updateProfile.js";
 import { AuthProvider } from "./contexts/AuthContext.js";
 import Signup from "./Components_TRUE/Signup.jsx";
 import User from "./Routes/User.js";
-import DataAnalytics from "./Routes/DataAnalytics";
+import DataAnalytics from "./Routes/DataAnalytics.js";
 
 
 function App() {

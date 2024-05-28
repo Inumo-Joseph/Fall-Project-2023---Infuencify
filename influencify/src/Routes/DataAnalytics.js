@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { addDoc, collection, onSnapshot, query, serverTimestamp, where, orderBy } from "firebase/firestore";
-import { auth, db } from "../Config/firebase-config";
+import { auth, db } from "../Config/firebase-config.js";
 
 function DataAnalytics() {
     const apikey = 'AIzaSyCjBuaqJCR1Lc0BGX5lZZjfBgKIehkXwI0';
