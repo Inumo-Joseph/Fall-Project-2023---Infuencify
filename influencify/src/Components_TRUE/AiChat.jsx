@@ -11,7 +11,7 @@ function AiChat() {
     try {
       setLoading(true);
       const response = await fetch(
-        `http://localhost:8080/ask-ai?prompt=${encodeURIComponent(prompt)}`
+        `https://influencify-backend.onrender.com/ask-ai?prompt=${encodeURIComponent(prompt)}`
       );
       const responseData = await response.json();
       setAiResponse(responseData);
